@@ -1,0 +1,2607 @@
+@prefix airport: <urn:airport#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ext: <urn:BrickExtension#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ext:Changeover_Command rdfs:subClassOf brick:On_Off_Command ;
+    skos:definition "Command for changeover operation" .
+
+ext:Changeover_Status rdfs:subClassOf brick:Status ;
+    skos:definition "Status for changeover operation" .
+
+ext:Manual_Mode_Command rdfs:subClassOf brick:Mode_Command ;
+    skos:definition "Command for manual mode" .
+
+ext:Supply_Air_Unit a owl:Class ;
+    rdfs:subClassOf brick:Air_Handler_Unit ;
+    skos:definition "Unit for source air" .
+
+airport:Airport a brick:Site ;
+    rdfs:label "Vienna Airport location" ;
+    brick:hasPoint airport:Luftdruck,
+        airport:Lufttemperatur_2m,
+        airport:Niederschlag,
+        airport:Relative_Feuchte,
+        airport:Sunshine_duration,
+        airport:Wind_avg_speed,
+        airport:Wind_direction,
+        airport:Wind_max_speed ;
+    brick:isLocationOf airport:102,
+        airport:108,
+        airport:109,
+        airport:118,
+        airport:680 .
+
+ext:Sunshine_Duration_Sensor rdfs:subClassOf brick:Sensor ;
+    skos:definition "Sensor for sunshine duration" .
+
+ext:Ventilation_Zone a owl:Class ;
+    rdfs:subClassOf brick:Ventilation_Air_System,
+        brick:Zone ;
+    skos:definition "Ventilation zone " .
+
+ext:Wind_Maximum_Speed_Sensor rdfs:subClassOf brick:Wind_Speed_Sensor ;
+    skos:definition "Sensor for maximum wind speed" .
+
+airport:102 a brick:Building ;
+    brick:isLocationOf airport:102_H_03,
+        airport:102_H_04,
+        airport:102_H_05,
+        airport:102_H_06,
+        airport:102_H_07,
+        airport:102_H_08,
+        airport:102_H_09,
+        airport:102_H_10,
+        airport:102_H_11,
+        airport:102_H_13,
+        airport:102_H_14,
+        airport:102_H_15,
+        airport:102_H_16,
+        airport:102_U_01,
+        airport:102_U_02,
+        airport:102_U_03,
+        airport:102_U_04 .
+
+airport:102_H_03 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_03_Anlage_allgemein,
+        airport:102_H_03_Aussentemperatur\(-Freigabe\),
+        airport:102_H_03_Fancoil ;
+    brick:hasPoint airport:102_H_03_HZK_AT1X,
+        airport:102_H_03_HZK_AT2X,
+        airport:102_H_03_HZK_AT3X,
+        airport:102_H_03_HZK_AT4X,
+        airport:102_H_03_HZK_TE1X,
+        airport:102_H_03_HZK_TE2X,
+        airport:102_H_03_HZK_TE3X,
+        airport:102_H_03_HZK_TE4X .
+
+airport:102_H_03_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_03_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_03_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_03_ANL_SA_B a brick:On_Off_Status .
+
+airport:102_H_03_ANL_SH1B a ext:Manual_Mode_Status .
+
+airport:102_H_03_ANL_SH2B a ext:Manual_Mode_Status .
+
+airport:102_H_03_ANL_SU_S a ext:Alarm_Sum .
+
+airport:102_H_03_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_03_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_03_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_03_ANL_AB_S,
+        airport:102_H_03_ANL_EV_X,
+        airport:102_H_03_ANL_FG_S,
+        airport:102_H_03_ANL_PV_S,
+        airport:102_H_03_ANL_SA_B,
+        airport:102_H_03_ANL_SH1B,
+        airport:102_H_03_ANL_SH2B,
+        airport:102_H_03_ANL_SU_S .
+
+airport:102_H_03_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_03_AUS_FG1X,
+        airport:102_H_03_AUS_FG2X .
+
+airport:102_H_03_FCO_PU1A a ext:Pump_Alarm .
+
+airport:102_H_03_FCO_PU1B a brick:Pump_Status .
+
+airport:102_H_03_FCO_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_03_FCO_PU1Y a brick:Level_Command .
+
+airport:102_H_03_FCO_PU2A a ext:Pump_Alarm .
+
+airport:102_H_03_FCO_PU2B a brick:Pump_Status .
+
+airport:102_H_03_FCO_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_03_FCO_PU2Y a brick:Level_Command .
+
+airport:102_H_03_FCO_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_03_FCO_RV_R a brick:Level_Setpoint .
+
+airport:102_H_03_FCO_RV_Y a brick:Valve_Command .
+
+airport:102_H_03_FCO_VLSX a brick:On_Off_Command .
+
+airport:102_H_03_FCO_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_03_FCO_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_03_Fancoil a brick:Fan_Coil_Unit ;
+    brick:hasPoint airport:102_H_03_FCO_PU1A,
+        airport:102_H_03_FCO_PU1B,
+        airport:102_H_03_FCO_PU1S,
+        airport:102_H_03_FCO_PU1Y,
+        airport:102_H_03_FCO_PU2A,
+        airport:102_H_03_FCO_PU2B,
+        airport:102_H_03_FCO_PU2S,
+        airport:102_H_03_FCO_PU2Y,
+        airport:102_H_03_FCO_RL_M,
+        airport:102_H_03_FCO_RV_R,
+        airport:102_H_03_FCO_RV_Y,
+        airport:102_H_03_FCO_VLSX,
+        airport:102_H_03_FCO_VL_M,
+        airport:102_H_03_FCO_VL_R .
+
+airport:102_H_03_HZK_AT1X a ext:Heating_Curve_Parameter_external_air_1 .
+
+airport:102_H_03_HZK_AT2X a ext:Heating_Curve_Parameter_external_air_2 .
+
+airport:102_H_03_HZK_AT3X a ext:Heating_Curve_Parameter_external_air_3 .
+
+airport:102_H_03_HZK_AT4X a ext:Heating_Curve_Parameter_external_air_4 .
+
+airport:102_H_03_HZK_TE1X a ext:Heating_Curve_Parameter_target_setpoint_1 .
+
+airport:102_H_03_HZK_TE2X a ext:Heating_Curve_Parameter_target_setpoint_2 .
+
+airport:102_H_03_HZK_TE3X a ext:Heating_Curve_Parameter_target_setpoint_3 .
+
+airport:102_H_03_HZK_TE4X a ext:Heating_Curve_Parameter_target_setpoint_4 .
+
+airport:102_H_04 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_04_Anlage_allgemein,
+        airport:102_H_04_Aussentemperatur\(-Freigabe\),
+        airport:102_H_04_Radiator .
+
+airport:102_H_04_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_04_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_04_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_04_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_04_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_04_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_04_ANL_AB_S,
+        airport:102_H_04_ANL_EV_X,
+        airport:102_H_04_ANL_FG_S,
+        airport:102_H_04_ANL_PV_S .
+
+airport:102_H_04_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_04_AUS_FG1X,
+        airport:102_H_04_AUS_FG2X .
+
+airport:102_H_04_RAD_PU1B a brick:Pump_Status .
+
+airport:102_H_04_RAD_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_04_RAD_PU2B a brick:Pump_Status .
+
+airport:102_H_04_RAD_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_04_RAD_PU_A a ext:Pump_Alarm .
+
+airport:102_H_04_RAD_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_04_RAD_RV_Y a brick:Valve_Command .
+
+airport:102_H_04_RAD_VLSX a brick:On_Off_Command .
+
+airport:102_H_04_RAD_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_04_RAD_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_04_Radiator a brick:Radiator ;
+    brick:hasPoint airport:102_H_04_RAD_PU1B,
+        airport:102_H_04_RAD_PU1S,
+        airport:102_H_04_RAD_PU2B,
+        airport:102_H_04_RAD_PU2S,
+        airport:102_H_04_RAD_PU_A,
+        airport:102_H_04_RAD_RL_M,
+        airport:102_H_04_RAD_RV_Y,
+        airport:102_H_04_RAD_VLSX,
+        airport:102_H_04_RAD_VL_M,
+        airport:102_H_04_RAD_VL_R .
+
+airport:102_H_05 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_05_Anlage_allgemein,
+        airport:102_H_05_Aussentemperatur\(-Freigabe\),
+        airport:102_H_05_Fancoil ;
+    brick:hasPoint airport:102_H_05_HZK_AT1X,
+        airport:102_H_05_HZK_AT2X,
+        airport:102_H_05_HZK_AT3X,
+        airport:102_H_05_HZK_AT4X,
+        airport:102_H_05_HZK_TE1X,
+        airport:102_H_05_HZK_TE2X,
+        airport:102_H_05_HZK_TE3X,
+        airport:102_H_05_HZK_TE4X .
+
+airport:102_H_05_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_05_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_05_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_05_ANL_SA_B a brick:On_Off_Status .
+
+airport:102_H_05_ANL_SH1B a ext:Manual_Mode_Status .
+
+airport:102_H_05_ANL_SH2B a ext:Manual_Mode_Status .
+
+airport:102_H_05_ANL_SU_S a ext:Alarm_Sum .
+
+airport:102_H_05_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_05_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_05_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_05_ANL_AB_S,
+        airport:102_H_05_ANL_EV_X,
+        airport:102_H_05_ANL_FG_S,
+        airport:102_H_05_ANL_PV_S,
+        airport:102_H_05_ANL_SA_B,
+        airport:102_H_05_ANL_SH1B,
+        airport:102_H_05_ANL_SH2B,
+        airport:102_H_05_ANL_SU_S .
+
+airport:102_H_05_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_05_AUS_FG1X,
+        airport:102_H_05_AUS_FG2X .
+
+airport:102_H_05_FCO_PU1A a ext:Pump_Alarm .
+
+airport:102_H_05_FCO_PU1B a brick:Pump_Status .
+
+airport:102_H_05_FCO_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_05_FCO_PU1Y a brick:Level_Command .
+
+airport:102_H_05_FCO_PU2A a ext:Pump_Alarm .
+
+airport:102_H_05_FCO_PU2B a brick:Pump_Status .
+
+airport:102_H_05_FCO_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_05_FCO_PU2Y a brick:Level_Command .
+
+airport:102_H_05_FCO_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_05_FCO_RV_R a brick:Level_Setpoint .
+
+airport:102_H_05_FCO_RV_Y a brick:Valve_Command .
+
+airport:102_H_05_FCO_VLSX a brick:On_Off_Command .
+
+airport:102_H_05_FCO_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_05_FCO_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_05_Fancoil a brick:Fan_Coil_Unit ;
+    brick:hasPoint airport:102_H_05_FCO_PU1A,
+        airport:102_H_05_FCO_PU1B,
+        airport:102_H_05_FCO_PU1S,
+        airport:102_H_05_FCO_PU1Y,
+        airport:102_H_05_FCO_PU2A,
+        airport:102_H_05_FCO_PU2B,
+        airport:102_H_05_FCO_PU2S,
+        airport:102_H_05_FCO_PU2Y,
+        airport:102_H_05_FCO_RL_M,
+        airport:102_H_05_FCO_RV_R,
+        airport:102_H_05_FCO_RV_Y,
+        airport:102_H_05_FCO_VLSX,
+        airport:102_H_05_FCO_VL_M,
+        airport:102_H_05_FCO_VL_R .
+
+airport:102_H_05_HZK_AT1X a ext:Heating_Curve_Parameter_external_air_1 .
+
+airport:102_H_05_HZK_AT2X a ext:Heating_Curve_Parameter_external_air_2 .
+
+airport:102_H_05_HZK_AT3X a ext:Heating_Curve_Parameter_external_air_3 .
+
+airport:102_H_05_HZK_AT4X a ext:Heating_Curve_Parameter_external_air_4 .
+
+airport:102_H_05_HZK_TE1X a ext:Heating_Curve_Parameter_target_setpoint_1 .
+
+airport:102_H_05_HZK_TE2X a ext:Heating_Curve_Parameter_target_setpoint_2 .
+
+airport:102_H_05_HZK_TE3X a ext:Heating_Curve_Parameter_target_setpoint_3 .
+
+airport:102_H_05_HZK_TE4X a ext:Heating_Curve_Parameter_target_setpoint_4 .
+
+airport:102_H_06 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_06_Anlage_allgemein,
+        airport:102_H_06_Aussentemperatur\(-Freigabe\),
+        airport:102_H_06_Torluftschleier ;
+    brick:hasPoint airport:102_H_06_HZK_AT1X,
+        airport:102_H_06_HZK_AT2X,
+        airport:102_H_06_HZK_AT3X,
+        airport:102_H_06_HZK_AT4X,
+        airport:102_H_06_HZK_TE1X,
+        airport:102_H_06_HZK_TE2X,
+        airport:102_H_06_HZK_TE3X,
+        airport:102_H_06_HZK_TE4X .
+
+airport:102_H_06_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_06_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_06_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_06_ANL_SA_B a brick:On_Off_Status .
+
+airport:102_H_06_ANL_SH1B a ext:Manual_Mode_Status .
+
+airport:102_H_06_ANL_SH2B a ext:Manual_Mode_Status .
+
+airport:102_H_06_ANL_SU_S a ext:Alarm_Sum .
+
+airport:102_H_06_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_06_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_06_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_06_ANL_AB_S,
+        airport:102_H_06_ANL_EV_X,
+        airport:102_H_06_ANL_FG_S,
+        airport:102_H_06_ANL_PV_S,
+        airport:102_H_06_ANL_SA_B,
+        airport:102_H_06_ANL_SH1B,
+        airport:102_H_06_ANL_SH2B,
+        airport:102_H_06_ANL_SU_S .
+
+airport:102_H_06_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_06_AUS_FG1X,
+        airport:102_H_06_AUS_FG2X .
+
+airport:102_H_06_HZK_AT1X a ext:Heating_Curve_Parameter_external_air_1 .
+
+airport:102_H_06_HZK_AT2X a ext:Heating_Curve_Parameter_external_air_2 .
+
+airport:102_H_06_HZK_AT3X a ext:Heating_Curve_Parameter_external_air_3 .
+
+airport:102_H_06_HZK_AT4X a ext:Heating_Curve_Parameter_external_air_4 .
+
+airport:102_H_06_HZK_TE1X a ext:Heating_Curve_Parameter_target_setpoint_1 .
+
+airport:102_H_06_HZK_TE2X a ext:Heating_Curve_Parameter_target_setpoint_2 .
+
+airport:102_H_06_HZK_TE3X a ext:Heating_Curve_Parameter_target_setpoint_3 .
+
+airport:102_H_06_HZK_TE4X a ext:Heating_Curve_Parameter_target_setpoint_4 .
+
+airport:102_H_06_TLS_PU1A a ext:Pump_Alarm .
+
+airport:102_H_06_TLS_PU1B a brick:Pump_Status .
+
+airport:102_H_06_TLS_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_06_TLS_PU1Y a brick:Level_Command .
+
+airport:102_H_06_TLS_PU2A a ext:Pump_Alarm .
+
+airport:102_H_06_TLS_PU2B a brick:Pump_Status .
+
+airport:102_H_06_TLS_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_06_TLS_PU2Y a brick:Level_Command .
+
+airport:102_H_06_TLS_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_06_TLS_RV_R a brick:Level_Setpoint .
+
+airport:102_H_06_TLS_RV_Y a brick:Valve_Command .
+
+airport:102_H_06_TLS_VLSX a brick:On_Off_Command .
+
+airport:102_H_06_TLS_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_06_TLS_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_06_Torluftschleier a ext:Air_Curtain ;
+    brick:hasPoint airport:102_H_06_TLS_PU1A,
+        airport:102_H_06_TLS_PU1B,
+        airport:102_H_06_TLS_PU1S,
+        airport:102_H_06_TLS_PU1Y,
+        airport:102_H_06_TLS_PU2A,
+        airport:102_H_06_TLS_PU2B,
+        airport:102_H_06_TLS_PU2S,
+        airport:102_H_06_TLS_PU2Y,
+        airport:102_H_06_TLS_RL_M,
+        airport:102_H_06_TLS_RV_R,
+        airport:102_H_06_TLS_RV_Y,
+        airport:102_H_06_TLS_VLSX,
+        airport:102_H_06_TLS_VL_M,
+        airport:102_H_06_TLS_VL_R .
+
+airport:102_H_07 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_07_Anlage_allgemein,
+        airport:102_H_07_Aussentemperatur\(-Freigabe\),
+        airport:102_H_07_Radiator ;
+    brick:hasPoint airport:102_H_07_HZK_AT1X,
+        airport:102_H_07_HZK_AT2X,
+        airport:102_H_07_HZK_AT3X,
+        airport:102_H_07_HZK_AT4X,
+        airport:102_H_07_HZK_TE1X,
+        airport:102_H_07_HZK_TE2X,
+        airport:102_H_07_HZK_TE3X,
+        airport:102_H_07_HZK_TE4X .
+
+airport:102_H_07_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_07_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_07_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_07_ANL_SA_B a brick:On_Off_Status .
+
+airport:102_H_07_ANL_SH1B a ext:Manual_Mode_Status .
+
+airport:102_H_07_ANL_SH2B a ext:Manual_Mode_Status .
+
+airport:102_H_07_ANL_SU_S a ext:Alarm_Sum .
+
+airport:102_H_07_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_07_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_07_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_07_ANL_AB_S,
+        airport:102_H_07_ANL_EV_X,
+        airport:102_H_07_ANL_FG_S,
+        airport:102_H_07_ANL_PV_S,
+        airport:102_H_07_ANL_SA_B,
+        airport:102_H_07_ANL_SH1B,
+        airport:102_H_07_ANL_SH2B,
+        airport:102_H_07_ANL_SU_S .
+
+airport:102_H_07_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_07_AUS_FG1X,
+        airport:102_H_07_AUS_FG2X .
+
+airport:102_H_07_HZK_AT1X a ext:Heating_Curve_Parameter_external_air_1 .
+
+airport:102_H_07_HZK_AT2X a ext:Heating_Curve_Parameter_external_air_2 .
+
+airport:102_H_07_HZK_AT3X a ext:Heating_Curve_Parameter_external_air_3 .
+
+airport:102_H_07_HZK_AT4X a ext:Heating_Curve_Parameter_external_air_4 .
+
+airport:102_H_07_HZK_TE1X a ext:Heating_Curve_Parameter_target_setpoint_1 .
+
+airport:102_H_07_HZK_TE2X a ext:Heating_Curve_Parameter_target_setpoint_2 .
+
+airport:102_H_07_HZK_TE3X a ext:Heating_Curve_Parameter_target_setpoint_3 .
+
+airport:102_H_07_HZK_TE4X a ext:Heating_Curve_Parameter_target_setpoint_4 .
+
+airport:102_H_07_RAD_PU1A a ext:Pump_Alarm .
+
+airport:102_H_07_RAD_PU1B a brick:Pump_Status .
+
+airport:102_H_07_RAD_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_07_RAD_PU1Y a brick:Level_Command .
+
+airport:102_H_07_RAD_PU2A a ext:Pump_Alarm .
+
+airport:102_H_07_RAD_PU2B a brick:Pump_Status .
+
+airport:102_H_07_RAD_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_07_RAD_PU2Y a brick:Level_Command .
+
+airport:102_H_07_RAD_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_07_RAD_RV_R a brick:Level_Setpoint .
+
+airport:102_H_07_RAD_RV_Y a brick:Valve_Command .
+
+airport:102_H_07_RAD_VLSX a brick:On_Off_Command .
+
+airport:102_H_07_RAD_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_07_RAD_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_07_Radiator a brick:Radiator ;
+    brick:hasPoint airport:102_H_07_RAD_PU1A,
+        airport:102_H_07_RAD_PU1B,
+        airport:102_H_07_RAD_PU1S,
+        airport:102_H_07_RAD_PU1Y,
+        airport:102_H_07_RAD_PU2A,
+        airport:102_H_07_RAD_PU2B,
+        airport:102_H_07_RAD_PU2S,
+        airport:102_H_07_RAD_PU2Y,
+        airport:102_H_07_RAD_RL_M,
+        airport:102_H_07_RAD_RV_R,
+        airport:102_H_07_RAD_RV_Y,
+        airport:102_H_07_RAD_VLSX,
+        airport:102_H_07_RAD_VL_M,
+        airport:102_H_07_RAD_VL_R .
+
+airport:102_H_08 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_08_Anlage_allgemein,
+        airport:102_H_08_Aussentemperatur\(-Freigabe\),
+        airport:102_H_08_Kondensatpumpe .
+
+airport:102_H_08_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_08_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_08_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_08_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_08_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_08_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_08_ANL_AB_S,
+        airport:102_H_08_ANL_EV_X,
+        airport:102_H_08_ANL_FG_S,
+        airport:102_H_08_ANL_PV_S .
+
+airport:102_H_08_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_08_AUS_FG1X,
+        airport:102_H_08_AUS_FG2X .
+
+airport:102_H_08_KON_AN_B a brick:Mode_Status .
+
+airport:102_H_08_KON_FG2S a brick:On_Off_Command .
+
+airport:102_H_08_KON_PU1B a brick:Pump_Status .
+
+airport:102_H_08_KON_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_08_KON_PU2B a brick:Pump_Status .
+
+airport:102_H_08_KON_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_08_KON_PU_A a ext:Pump_Alarm .
+
+airport:102_H_08_KON_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_08_KON_RV_Y a brick:Valve_Command .
+
+airport:102_H_08_KON_VLSX a brick:On_Off_Command .
+
+airport:102_H_08_KON_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_08_KON_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_08_Kondensatpumpe a brick:Condenser_Water_Pump ;
+    brick:hasPoint airport:102_H_08_KON_AN_B,
+        airport:102_H_08_KON_FG2S,
+        airport:102_H_08_KON_PU1B,
+        airport:102_H_08_KON_PU1S,
+        airport:102_H_08_KON_PU2B,
+        airport:102_H_08_KON_PU2S,
+        airport:102_H_08_KON_PU_A,
+        airport:102_H_08_KON_RL_M,
+        airport:102_H_08_KON_RV_Y,
+        airport:102_H_08_KON_VLSX,
+        airport:102_H_08_KON_VL_M,
+        airport:102_H_08_KON_VL_R .
+
+airport:102_H_09 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_09_Anlage_allgemein,
+        airport:102_H_09_Aussentemperatur\(-Freigabe\),
+        airport:102_H_09_Radiator .
+
+airport:102_H_09_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_09_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_09_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_09_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_09_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_09_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_09_ANL_AB_S,
+        airport:102_H_09_ANL_EV_X,
+        airport:102_H_09_ANL_FG_S,
+        airport:102_H_09_ANL_PV_S .
+
+airport:102_H_09_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_09_AUS_FG1X,
+        airport:102_H_09_AUS_FG2X .
+
+airport:102_H_09_RAD_PU1B a brick:Pump_Status .
+
+airport:102_H_09_RAD_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_09_RAD_PU2B a brick:Pump_Status .
+
+airport:102_H_09_RAD_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_09_RAD_PU_A a ext:Pump_Alarm .
+
+airport:102_H_09_RAD_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_09_RAD_RV_Y a brick:Valve_Command .
+
+airport:102_H_09_RAD_VLSX a brick:On_Off_Command .
+
+airport:102_H_09_RAD_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_09_RAD_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_09_Radiator a brick:Radiator ;
+    brick:hasPoint airport:102_H_09_RAD_PU1B,
+        airport:102_H_09_RAD_PU1S,
+        airport:102_H_09_RAD_PU2B,
+        airport:102_H_09_RAD_PU2S,
+        airport:102_H_09_RAD_PU_A,
+        airport:102_H_09_RAD_RL_M,
+        airport:102_H_09_RAD_RV_Y,
+        airport:102_H_09_RAD_VLSX,
+        airport:102_H_09_RAD_VL_M,
+        airport:102_H_09_RAD_VL_R .
+
+airport:102_H_10 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_10_Anlage_allgemein,
+        airport:102_H_10_Aussentemperatur\(-Freigabe\),
+        airport:102_H_10_Radiator .
+
+airport:102_H_10_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_10_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_10_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_10_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_10_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_10_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_10_ANL_AB_S,
+        airport:102_H_10_ANL_EV_X,
+        airport:102_H_10_ANL_FG_S,
+        airport:102_H_10_ANL_PV_S .
+
+airport:102_H_10_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_10_AUS_FG1X,
+        airport:102_H_10_AUS_FG2X .
+
+airport:102_H_10_RAD_PU1B a brick:Pump_Status .
+
+airport:102_H_10_RAD_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_10_RAD_PU2B a brick:Pump_Status .
+
+airport:102_H_10_RAD_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_10_RAD_PU_A a ext:Pump_Alarm .
+
+airport:102_H_10_RAD_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_10_RAD_RV_Y a brick:Valve_Command .
+
+airport:102_H_10_RAD_VLSX a brick:On_Off_Command .
+
+airport:102_H_10_RAD_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_10_RAD_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_10_Radiator a brick:Radiator ;
+    brick:hasPoint airport:102_H_10_RAD_PU1B,
+        airport:102_H_10_RAD_PU1S,
+        airport:102_H_10_RAD_PU2B,
+        airport:102_H_10_RAD_PU2S,
+        airport:102_H_10_RAD_PU_A,
+        airport:102_H_10_RAD_RL_M,
+        airport:102_H_10_RAD_RV_Y,
+        airport:102_H_10_RAD_VLSX,
+        airport:102_H_10_RAD_VL_M,
+        airport:102_H_10_RAD_VL_R .
+
+airport:102_H_11 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_11_Anlage_allgemein,
+        airport:102_H_11_Aussentemperatur\(-Freigabe\),
+        airport:102_H_11_Radiator .
+
+airport:102_H_11_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_11_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_11_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_11_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_11_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_11_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_11_ANL_AB_S,
+        airport:102_H_11_ANL_EV_X,
+        airport:102_H_11_ANL_FG_S,
+        airport:102_H_11_ANL_PV_S .
+
+airport:102_H_11_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_11_AUS_FG1X,
+        airport:102_H_11_AUS_FG2X .
+
+airport:102_H_11_RAD_PU1B a brick:Pump_Status .
+
+airport:102_H_11_RAD_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_11_RAD_PU2B a brick:Pump_Status .
+
+airport:102_H_11_RAD_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_11_RAD_PU_A a ext:Pump_Alarm .
+
+airport:102_H_11_RAD_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_11_RAD_RV_Y a brick:Valve_Command .
+
+airport:102_H_11_RAD_VLSX a brick:On_Off_Command .
+
+airport:102_H_11_RAD_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_11_RAD_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_11_Radiator a brick:Radiator ;
+    brick:hasPoint airport:102_H_11_RAD_PU1B,
+        airport:102_H_11_RAD_PU1S,
+        airport:102_H_11_RAD_PU2B,
+        airport:102_H_11_RAD_PU2S,
+        airport:102_H_11_RAD_PU_A,
+        airport:102_H_11_RAD_RL_M,
+        airport:102_H_11_RAD_RV_Y,
+        airport:102_H_11_RAD_VLSX,
+        airport:102_H_11_RAD_VL_M,
+        airport:102_H_11_RAD_VL_R .
+
+airport:102_H_13 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_13_Anlage_allgemein,
+        airport:102_H_13_Radiator,
+        airport:102_H_13_Warmwasserbereitung .
+
+airport:102_H_13_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_13_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_13_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_13_ANL_FG_S,
+        airport:102_H_13_ANL_PV_S .
+
+airport:102_H_13_RAD_PU1B a brick:Pump_Status .
+
+airport:102_H_13_RAD_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_13_RAD_PU2B a brick:Pump_Status .
+
+airport:102_H_13_RAD_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_13_RAD_PU_A a ext:Pump_Alarm .
+
+airport:102_H_13_RAD_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_13_RAD_RV_Y a brick:Valve_Command .
+
+airport:102_H_13_RAD_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_13_Radiator a brick:Radiator ;
+    brick:hasPoint airport:102_H_13_RAD_PU1B,
+        airport:102_H_13_RAD_PU1S,
+        airport:102_H_13_RAD_PU2B,
+        airport:102_H_13_RAD_PU2S,
+        airport:102_H_13_RAD_PU_A,
+        airport:102_H_13_RAD_RL_M,
+        airport:102_H_13_RAD_RV_Y,
+        airport:102_H_13_RAD_VL_M .
+
+airport:102_H_13_WWB_VL1X a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_13_Warmwasserbereitung a brick:Domestic_Hot_Water_System ;
+    brick:hasPoint airport:102_H_13_WWB_VL1X .
+
+airport:102_H_14 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_14_Anlage_allgemein,
+        airport:102_H_14_Aussentemperatur\(-Freigabe\) .
+
+airport:102_H_14_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_14_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_14_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_14_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_14_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_14_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_14_ANL_AB_S,
+        airport:102_H_14_ANL_EV_X,
+        airport:102_H_14_ANL_FG_S,
+        airport:102_H_14_ANL_PV_S .
+
+airport:102_H_14_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_14_AUS_FG1X,
+        airport:102_H_14_AUS_FG2X .
+
+airport:102_H_15 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_15_Anlage_allgemein,
+        airport:102_H_15_Aussentemperatur\(-Freigabe\),
+        airport:102_H_15_Radiator .
+
+airport:102_H_15_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_15_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_15_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_15_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_15_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_15_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_15_ANL_AB_S,
+        airport:102_H_15_ANL_EV_X,
+        airport:102_H_15_ANL_FG_S,
+        airport:102_H_15_ANL_PV_S .
+
+airport:102_H_15_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_15_AUS_FG1X,
+        airport:102_H_15_AUS_FG2X .
+
+airport:102_H_15_RAD_PU1B a brick:Pump_Status .
+
+airport:102_H_15_RAD_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_15_RAD_PU2B a brick:Pump_Status .
+
+airport:102_H_15_RAD_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_15_RAD_PU_A a ext:Pump_Alarm .
+
+airport:102_H_15_RAD_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_15_RAD_RV_Y a brick:Valve_Command .
+
+airport:102_H_15_RAD_VLSX a brick:On_Off_Command .
+
+airport:102_H_15_RAD_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_15_RAD_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_15_Radiator a brick:Radiator ;
+    brick:hasPoint airport:102_H_15_RAD_PU1B,
+        airport:102_H_15_RAD_PU1S,
+        airport:102_H_15_RAD_PU2B,
+        airport:102_H_15_RAD_PU2S,
+        airport:102_H_15_RAD_PU_A,
+        airport:102_H_15_RAD_RL_M,
+        airport:102_H_15_RAD_RV_Y,
+        airport:102_H_15_RAD_VLSX,
+        airport:102_H_15_RAD_VL_M,
+        airport:102_H_15_RAD_VL_R .
+
+airport:102_H_16 a brick:Hot_Water_System ;
+    brick:hasPart airport:102_H_16_Anlage_allgemein,
+        airport:102_H_16_Aussentemperatur\(-Freigabe\),
+        airport:102_H_16_Torluftschleier .
+
+airport:102_H_16_ANL_AB_S a brick:On_Off_Command .
+
+airport:102_H_16_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_H_16_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_H_16_AUS_FG1X a brick:On_Off_Status .
+
+airport:102_H_16_AUS_FG2X a brick:On_Off_Status .
+
+airport:102_H_16_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_H_16_ANL_AB_S,
+        airport:102_H_16_ANL_EV_X,
+        airport:102_H_16_ANL_FG_S,
+        airport:102_H_16_ANL_PV_S .
+
+airport:102_H_16_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:102_H_16_AUS_FG1X,
+        airport:102_H_16_AUS_FG2X .
+
+airport:102_H_16_TLS_PU1B a brick:Pump_Status .
+
+airport:102_H_16_TLS_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_H_16_TLS_PU2B a brick:Pump_Status .
+
+airport:102_H_16_TLS_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_H_16_TLS_PU_A a ext:Pump_Alarm .
+
+airport:102_H_16_TLS_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_H_16_TLS_RV_Y a brick:Valve_Command .
+
+airport:102_H_16_TLS_VLSX a brick:On_Off_Command .
+
+airport:102_H_16_TLS_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_H_16_TLS_VL_R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_H_16_Torluftschleier a ext:Air_Curtain ;
+    brick:hasPoint airport:102_H_16_TLS_PU1B,
+        airport:102_H_16_TLS_PU1S,
+        airport:102_H_16_TLS_PU2B,
+        airport:102_H_16_TLS_PU2S,
+        airport:102_H_16_TLS_PU_A,
+        airport:102_H_16_TLS_RL_M,
+        airport:102_H_16_TLS_RV_Y,
+        airport:102_H_16_TLS_VLSX,
+        airport:102_H_16_TLS_VL_M,
+        airport:102_H_16_TLS_VL_R .
+
+airport:102_U_01 a ext:Heat_Exchanger_System ;
+    brick:hasPart airport:102_U_01_Anlage_allgemein,
+        airport:102_U_01_Umformer ;
+    brick:hasPoint airport:102_U_01_HZK_AT1X,
+        airport:102_U_01_HZK_AT2X,
+        airport:102_U_01_HZK_AT3X,
+        airport:102_U_01_HZK_AT4X,
+        airport:102_U_01_HZK_TE1X,
+        airport:102_U_01_HZK_TE2X,
+        airport:102_U_01_HZK_TE3X,
+        airport:102_U_01_HZK_TE4X .
+
+airport:102_U_01_ANL_BA1B a brick:Mode_Status .
+
+airport:102_U_01_ANL_BA2B a brick:Mode_Status .
+
+airport:102_U_01_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_U_01_ANL_FL_W a brick:Maintenance_Required_Alarm .
+
+airport:102_U_01_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_U_01_ANL_SA_B a brick:On_Off_Status .
+
+airport:102_U_01_ANL_SH1B a ext:Manual_Mode_Status .
+
+airport:102_U_01_ANL_SH2B a ext:Manual_Mode_Status .
+
+airport:102_U_01_ANL_ST1A a brick:Humidity_Alarm .
+
+airport:102_U_01_ANL_ST2A a brick:Humidity_Alarm .
+
+airport:102_U_01_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_U_01_ANL_BA1B,
+        airport:102_U_01_ANL_BA2B,
+        airport:102_U_01_ANL_FG_S,
+        airport:102_U_01_ANL_FL_W,
+        airport:102_U_01_ANL_PV_S,
+        airport:102_U_01_ANL_SA_B,
+        airport:102_U_01_ANL_SH1B,
+        airport:102_U_01_ANL_SH2B,
+        airport:102_U_01_ANL_ST1A,
+        airport:102_U_01_ANL_ST2A .
+
+airport:102_U_01_HZK_AT1X a ext:Heating_Curve_Parameter_external_air_1 .
+
+airport:102_U_01_HZK_AT2X a ext:Heating_Curve_Parameter_external_air_2 .
+
+airport:102_U_01_HZK_AT3X a ext:Heating_Curve_Parameter_external_air_3 .
+
+airport:102_U_01_HZK_AT4X a ext:Heating_Curve_Parameter_external_air_4 .
+
+airport:102_U_01_HZK_TE1X a ext:Heating_Curve_Parameter_target_setpoint_1 .
+
+airport:102_U_01_HZK_TE2X a ext:Heating_Curve_Parameter_target_setpoint_2 .
+
+airport:102_U_01_HZK_TE3X a ext:Heating_Curve_Parameter_target_setpoint_3 .
+
+airport:102_U_01_HZK_TE4X a ext:Heating_Curve_Parameter_target_setpoint_4 .
+
+airport:102_U_01_UFO_PD_R a brick:Pressure_Setpoint .
+
+airport:102_U_01_UFO_PD_X a brick:Pressure_Setpoint .
+
+airport:102_U_01_UFO_PR2M a brick:Differential_Pressure_Sensor .
+
+airport:102_U_01_UFO_PU1A a ext:Pump_Alarm .
+
+airport:102_U_01_UFO_PU1B a brick:Pump_Status .
+
+airport:102_U_01_UFO_PU1S a ext:Pump_On_Off_Command .
+
+airport:102_U_01_UFO_PU1Y a brick:Level_Command .
+
+airport:102_U_01_UFO_PU2A a ext:Pump_Alarm .
+
+airport:102_U_01_UFO_PU2B a brick:Pump_Status .
+
+airport:102_U_01_UFO_PU2S a ext:Pump_On_Off_Command .
+
+airport:102_U_01_UFO_PU2Y a brick:Level_Command .
+
+airport:102_U_01_UFO_RL1M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_U_01_UFO_RL2M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_U_01_UFO_RLXX a brick:Return_Water_Temperature_Setpoint .
+
+airport:102_U_01_UFO_RV1R a brick:Level_Setpoint .
+
+airport:102_U_01_UFO_RV1Y a brick:Valve_Command .
+
+airport:102_U_01_UFO_RV2R a brick:Level_Setpoint .
+
+airport:102_U_01_UFO_RV2Y a brick:Valve_Command .
+
+airport:102_U_01_UFO_RV3R a brick:Level_Setpoint .
+
+airport:102_U_01_UFO_RV3Y a brick:Valve_Command .
+
+airport:102_U_01_UFO_ST_A a brick:Humidity_Alarm .
+
+airport:102_U_01_UFO_SU_S a ext:Alarm_Sum .
+
+airport:102_U_01_UFO_VL1M a brick:Supply_Temperature_Sensor .
+
+airport:102_U_01_UFO_VL2M a brick:Supply_Temperature_Sensor .
+
+airport:102_U_01_UFO_VL2R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_U_01_UFO_VLXX a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_U_01_Umformer a brick:Pump_VFD ;
+    brick:hasPoint airport:102_U_01_UFO_PD_R,
+        airport:102_U_01_UFO_PD_X,
+        airport:102_U_01_UFO_PR2M,
+        airport:102_U_01_UFO_PU1A,
+        airport:102_U_01_UFO_PU1B,
+        airport:102_U_01_UFO_PU1S,
+        airport:102_U_01_UFO_PU1Y,
+        airport:102_U_01_UFO_PU2A,
+        airport:102_U_01_UFO_PU2B,
+        airport:102_U_01_UFO_PU2S,
+        airport:102_U_01_UFO_PU2Y,
+        airport:102_U_01_UFO_PV2M,
+        airport:102_U_01_UFO_RL1M,
+        airport:102_U_01_UFO_RL2M,
+        airport:102_U_01_UFO_RLXX,
+        airport:102_U_01_UFO_RV1R,
+        airport:102_U_01_UFO_RV1Y,
+        airport:102_U_01_UFO_RV2R,
+        airport:102_U_01_UFO_RV2Y,
+        airport:102_U_01_UFO_RV3R,
+        airport:102_U_01_UFO_RV3Y,
+        airport:102_U_01_UFO_ST_A,
+        airport:102_U_01_UFO_SU_S,
+        airport:102_U_01_UFO_VL1M,
+        airport:102_U_01_UFO_VL2M,
+        airport:102_U_01_UFO_VL2R,
+        airport:102_U_01_UFO_VLXX .
+
+airport:102_U_02 a ext:Heat_Exchanger_System ;
+    brick:hasPart airport:102_U_02_Anlage_allgemein,
+        airport:102_U_02_Umformer .
+
+airport:102_U_02_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_U_02_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_U_02_ANL_AN_S,
+        airport:102_U_02_ANL_FG_S .
+
+airport:102_U_02_UFO_RL1M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_U_02_UFO_RL2M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_U_02_UFO_RV1R a brick:Level_Setpoint .
+
+airport:102_U_02_UFO_RV1Y a brick:Valve_Command .
+
+airport:102_U_02_UFO_RV2R a brick:Level_Setpoint .
+
+airport:102_U_02_UFO_RV2Y a brick:Valve_Command .
+
+airport:102_U_02_UFO_ST_A a brick:Humidity_Alarm .
+
+airport:102_U_02_UFO_VL1M a brick:Supply_Temperature_Sensor .
+
+airport:102_U_02_UFO_VL2M a brick:Supply_Temperature_Sensor .
+
+airport:102_U_02_Umformer a brick:Pump_VFD ;
+    brick:hasPoint airport:102_U_02_UFO_RL1M,
+        airport:102_U_02_UFO_RL2M,
+        airport:102_U_02_UFO_RV1R,
+        airport:102_U_02_UFO_RV1Y,
+        airport:102_U_02_UFO_RV2R,
+        airport:102_U_02_UFO_RV2Y,
+        airport:102_U_02_UFO_ST_A,
+        airport:102_U_02_UFO_VL1M,
+        airport:102_U_02_UFO_VL2M .
+
+airport:102_U_03 a ext:Heat_Exchanger_System ;
+    brick:hasPart airport:102_U_03_Anlage_allgemein,
+        airport:102_U_03_Heizwasserverteilung,
+        airport:102_U_03_Umformer,
+        airport:102_U_03_Warmwasserversorgung_Pumpe .
+
+airport:102_U_03_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_U_03_ANL_FL_W a brick:Maintenance_Required_Alarm .
+
+airport:102_U_03_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_U_03_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_U_03_ANL_FG_S,
+        airport:102_U_03_ANL_FL_W,
+        airport:102_U_03_ANL_PV_S,
+        airport:102_U_03_ANL____A .
+
+airport:102_U_03_HWV_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_U_03_HWV_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_U_03_Heizwasserverteilung a ext:Heating_Water_Distribution ;
+    brick:hasPoint airport:102_U_03_HWV_RL_M,
+        airport:102_U_03_HWV_VL_M .
+
+airport:102_U_03_UFO_RL1M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_U_03_UFO_RLXX a brick:Return_Water_Temperature_Setpoint .
+
+airport:102_U_03_UFO_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_U_03_UFO_RV1Y a brick:Valve_Command .
+
+airport:102_U_03_UFO_RV2Y a brick:Valve_Command .
+
+airport:102_U_03_UFO_ST_A a brick:Humidity_Alarm .
+
+airport:102_U_03_UFO_VL2M a brick:Supply_Temperature_Sensor .
+
+airport:102_U_03_UFO_VL2R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_U_03_UFO_VLXX a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_U_03_UFO_VL_M a brick:Supply_Temperature_Sensor .
+
+airport:102_U_03_Umformer a brick:Pump_VFD ;
+    brick:hasPoint airport:102_U_03_UFO_RL1M,
+        airport:102_U_03_UFO_RLXX,
+        airport:102_U_03_UFO_RL_M,
+        airport:102_U_03_UFO_RV1Y,
+        airport:102_U_03_UFO_RV2Y,
+        airport:102_U_03_UFO_ST_A,
+        airport:102_U_03_UFO_VL2M,
+        airport:102_U_03_UFO_VL2R,
+        airport:102_U_03_UFO_VLXX,
+        airport:102_U_03_UFO_VL_M .
+
+airport:102_U_03_WWP_FU_A a brick:Alarm .
+
+airport:102_U_03_Warmwasserversorgung_Pumpe a brick:Hot_Water_Pump ;
+    brick:hasPoint airport:102_U_03_WWP_FU_A .
+
+airport:102_U_04 a ext:Heat_Exchanger_System ;
+    brick:hasPart airport:102_U_04_Anlage_allgemein,
+        airport:102_U_04_Umformer .
+
+airport:102_U_04_ANL_FG_S a brick:On_Off_Command .
+
+airport:102_U_04_ANL_PV_S a brick:On_Off_Command .
+
+airport:102_U_04_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:102_U_04_ANL_AN_S,
+        airport:102_U_04_ANL_FG_S,
+        airport:102_U_04_ANL_PV_S .
+
+airport:102_U_04_UFO_RL1M a brick:Return_Water_Temperature_Sensor .
+
+airport:102_U_04_UFO_RLXX a brick:Return_Water_Temperature_Setpoint .
+
+airport:102_U_04_UFO_RV1Y a brick:Valve_Command .
+
+airport:102_U_04_UFO_RV2Y a brick:Valve_Command .
+
+airport:102_U_04_UFO_ST_A a brick:Humidity_Alarm .
+
+airport:102_U_04_UFO_VL2M a brick:Supply_Temperature_Sensor .
+
+airport:102_U_04_UFO_VL2R a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_U_04_UFO_VLXX a brick:Supply_Water_Temperature_Setpoint .
+
+airport:102_U_04_Umformer a brick:Pump_VFD ;
+    brick:hasPoint airport:102_U_04_UFO_AK_S,
+        airport:102_U_04_UFO_RL1M,
+        airport:102_U_04_UFO_RLXX,
+        airport:102_U_04_UFO_RV1Y,
+        airport:102_U_04_UFO_RV2Y,
+        airport:102_U_04_UFO_ST_A,
+        airport:102_U_04_UFO_VL2M,
+        airport:102_U_04_UFO_VL2R,
+        airport:102_U_04_UFO_VLXX .
+
+airport:108 a brick:Building ;
+    brick:isLocationOf airport:108_L_19 .
+
+airport:108_L_19 a brick:Ventilation_Air_System ;
+    brick:hasPart airport:108_L_19_Abluft,
+        airport:108_L_19_Abluftventilator,
+        airport:108_L_19_Anlage_allgemein,
+        airport:108_L_19_Aussentemperatur\(-Freigabe\),
+        airport:108_L_19_Brandmeldeanlage,
+        airport:108_L_19_Fortluft,
+        airport:108_L_19_Frische_Luft,
+        airport:108_L_19_Heizregister,
+        airport:108_L_19_Kuehlregister,
+        airport:108_L_19_Nachheizregister,
+        airport:108_L_19_Waermerueckgewinnung,
+        airport:108_L_19_Zuluft,
+        airport:108_L_19_Zuluftventilator ;
+    brick:hasPoint airport:L_19_Valve_Status .
+
+airport:108_L_19_ABL_CO_M a brick:CO2_Sensor .
+
+airport:108_L_19_ABL_CO_X a brick:CO2_Setpoint .
+
+airport:108_L_19_ABL_FE_M a brick:Relative_Humidity_Sensor .
+
+airport:108_L_19_ABL_FE_X a brick:Relative_Humidity_Setpoint .
+
+airport:108_L_19_ABL_PR_M a brick:Differential_Pressure_Sensor .
+
+airport:108_L_19_ABL_PR_X a brick:Differential_Pressure_Setpoint .
+
+airport:108_L_19_ABL_TE_M a brick:Temperature_Sensor .
+
+airport:108_L_19_ABL_TE_X a brick:Temperature_Setpoint .
+
+airport:108_L_19_ANL_FG_S a brick:On_Off_Command .
+
+airport:108_L_19_ANL_FS_A a ext:Frost_Alarm .
+
+airport:108_L_19_ANL_SA_B a brick:On_Off_Status .
+
+airport:108_L_19_ANL_SH_B a ext:Manual_Mode_Status .
+
+airport:108_L_19_ANL_ZP_S a brick:On_Off_Command .
+
+airport:108_L_19_AUS_TE_M a brick:Temperature_Sensor .
+
+airport:108_L_19_AVE_FU_A a brick:Alarm .
+
+airport:108_L_19_AVE_FU_B a brick:Mode_Status .
+
+airport:108_L_19_AVE_FU_O a ext:MAnual_Mode_Status .
+
+airport:108_L_19_AVE_FU_S a brick:On_Off_Command .
+
+airport:108_L_19_AVE_FU_Y a brick:Level_Command .
+
+airport:108_L_19_AVE_LF_A a brick:Alarm .
+
+airport:108_L_19_Abluft a ext:Extracted_Air ;
+    brick:hasPoint airport:108_L_19_ABL_AF_B,
+        airport:108_L_19_ABL_CO_M,
+        airport:108_L_19_ABL_CO_X,
+        airport:108_L_19_ABL_FE_M,
+        airport:108_L_19_ABL_FE_X,
+        airport:108_L_19_ABL_PR_M,
+        airport:108_L_19_ABL_PR_X,
+        airport:108_L_19_ABL_TE_M,
+        airport:108_L_19_ABL_TE_X .
+
+airport:108_L_19_Abluftventilator a brick:Exhaust_Fan ;
+    brick:hasPoint airport:108_L_19_AVE_FU_A,
+        airport:108_L_19_AVE_FU_B,
+        airport:108_L_19_AVE_FU_O,
+        airport:108_L_19_AVE_FU_S,
+        airport:108_L_19_AVE_FU_Y,
+        airport:108_L_19_AVE_LF_A .
+
+airport:108_L_19_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:108_L_19_ANL_FG_S,
+        airport:108_L_19_ANL_FS_A,
+        airport:108_L_19_ANL_SA_B,
+        airport:108_L_19_ANL_SH_B,
+        airport:108_L_19_ANL_ZP_S .
+
+airport:108_L_19_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:108_L_19_AUS_TE_M .
+
+airport:108_L_19_Brandmeldeanlage a brick:Fire_Alarm ;
+    brick:hasPoint airport:108_L_19_BMA_01_A .
+
+airport:108_L_19_FOL_TE_M a brick:Temperature_Sensor .
+
+airport:108_L_19_FRL_TE_M a brick:Temperature_Sensor .
+
+airport:108_L_19_Fortluft a ext:Exhaust_Air ;
+    brick:hasPoint airport:108_L_19_FOL_TE_M .
+
+airport:108_L_19_Frische_Luft a ext:Outside_Air ;
+    brick:hasPoint airport:108_L_19_FRL_TE_M .
+
+airport:108_L_19_HRG_PU_A a ext:Pump_Alarm .
+
+airport:108_L_19_HRG_PU_B a brick:Pump_Status .
+
+airport:108_L_19_HRG_PU_S a ext:Pump_On_Off_Command .
+
+airport:108_L_19_HRG_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:108_L_19_HRG_RV_Y a brick:Valve_Command .
+
+airport:108_L_19_Heizregister a brick:Heating_Coil ;
+    brick:hasPoint airport:108_L_19_HRG_PU_A,
+        airport:108_L_19_HRG_PU_B,
+        airport:108_L_19_HRG_PU_S,
+        airport:108_L_19_HRG_RL_M,
+        airport:108_L_19_HRG_RV_Y .
+
+airport:108_L_19_KRG_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:108_L_19_KRG_RV_Y a brick:Valve_Command .
+
+airport:108_L_19_Kuehlregister a brick:Cooling_Coil ;
+    brick:hasPoint airport:108_L_19_KRG_RL_M,
+        airport:108_L_19_KRG_RV_Y .
+
+airport:108_L_19_NHR_RV_Y a brick:Valve_Command .
+
+airport:108_L_19_Nachheizregister a ext:Reheat_Coil ;
+    brick:hasPoint airport:108_L_19_NHR_RV_Y .
+
+airport:108_L_19_Waermerueckgewinnung a ext:Heat_Recovery_System ;
+    brick:hasPoint airport:108_L_19_WRG____A,
+        airport:108_L_19_WRG____S,
+        airport:108_L_19_WRG____Y .
+
+airport:108_L_19_ZUL_KL1Y a brick:Valve_Position_Command .
+
+airport:108_L_19_ZUL_KL2Y a brick:Valve_Position_Command .
+
+airport:108_L_19_ZUL_KL3Y a brick:Valve_Position_Command .
+
+airport:108_L_19_ZUL_KL4Y a brick:Valve_Position_Command .
+
+airport:108_L_19_ZUL_PR_M a brick:Differential_Pressure_Sensor .
+
+airport:108_L_19_ZUL_PR_X a brick:Differential_Pressure_Setpoint .
+
+airport:108_L_19_ZUL_TE1M a brick:Temperature_Sensor .
+
+airport:108_L_19_ZUL_TE_M a brick:Temperature_Sensor .
+
+airport:108_L_19_ZUL_TE_R a brick:Temperature_Setpoint .
+
+airport:108_L_19_ZVE_FU_A a brick:Alarm .
+
+airport:108_L_19_ZVE_FU_B a brick:Mode_Status .
+
+airport:108_L_19_ZVE_FU_O a ext:MAnual_Mode_Status .
+
+airport:108_L_19_ZVE_FU_S a brick:On_Off_Command .
+
+airport:108_L_19_ZVE_FU_Y a brick:Level_Command .
+
+airport:108_L_19_ZVE_LF_A a brick:Alarm .
+
+airport:108_L_19_Zuluft a ext:Supply_Air ;
+    brick:hasPoint airport:108_L_19_ZUL_KL1Y,
+        airport:108_L_19_ZUL_KL2Y,
+        airport:108_L_19_ZUL_KL3Y,
+        airport:108_L_19_ZUL_KL4Y,
+        airport:108_L_19_ZUL_PR_M,
+        airport:108_L_19_ZUL_PR_X,
+        airport:108_L_19_ZUL_TE1M,
+        airport:108_L_19_ZUL_TE_M,
+        airport:108_L_19_ZUL_TE_R .
+
+airport:108_L_19_Zuluftventilator a brick:Supply_Fan ;
+    brick:hasPoint airport:108_L_19_ZVE_FU_A,
+        airport:108_L_19_ZVE_FU_B,
+        airport:108_L_19_ZVE_FU_O,
+        airport:108_L_19_ZVE_FU_S,
+        airport:108_L_19_ZVE_FU_Y,
+        airport:108_L_19_ZVE_LF_A .
+
+airport:109 a brick:Building ;
+    brick:hasPart airport:109_1,
+        airport:109_2,
+        airport:109__ ;
+    brick:isLocationOf airport:109_L_07 .
+
+airport:109_L_07 a brick:Ventilation_Air_System ;
+    brick:feeds airport:109_1,
+        airport:109_2,
+        airport:109__ ;
+    brick:hasPart airport:109_L_07_Abluft,
+        airport:109_L_07_Abluftventilator,
+        airport:109_L_07_Anlage_allgemein,
+        airport:109_L_07_Aussenluft,
+        airport:109_L_07_Befeuchter,
+        airport:109_L_07_Fortluft,
+        airport:109_L_07_Heizregister,
+        airport:109_L_07_Kuehlregister,
+        airport:109_L_07_Nachheizregister,
+        airport:109_L_07_Waermerueckgewinnung,
+        airport:109_L_07_Zuluft,
+        airport:109_L_07_Zuluftventilator ;
+    brick:hasPoint airport:L_07_Summe\(nalarm\),
+        airport:L_07_Valve_Status .
+
+airport:109_L_07_ABL_CO_M a brick:CO2_Sensor .
+
+airport:109_L_07_ABL_CO_X a brick:CO2_Setpoint .
+
+airport:109_L_07_ABL_FE_M a brick:Relative_Humidity_Sensor .
+
+airport:109_L_07_ABL_FE_X a brick:Relative_Humidity_Setpoint .
+
+airport:109_L_07_ABL_LQ_M a brick:CO2_Sensor .
+
+airport:109_L_07_ABL_PR_M a brick:Differential_Pressure_Sensor .
+
+airport:109_L_07_ABL_TE1M a brick:Temperature_Sensor .
+
+airport:109_L_07_ABL_TE_M a brick:Temperature_Sensor .
+
+airport:109_L_07_ANL_FG_S a brick:On_Off_Command .
+
+airport:109_L_07_ANL_FS_A a ext:Frost_Alarm .
+
+airport:109_L_07_AUL_TE_M a brick:Temperature_Sensor .
+
+airport:109_L_07_AVE_AP_M a brick:Power_Sensor .
+
+airport:109_L_07_AVE_BZ_M a brick:Run_Time_Sensor .
+
+airport:109_L_07_AVE_EN_M a brick:Power_Sensor .
+
+airport:109_L_07_AVE_FB_A a brick:Communication_Loss_Alarm .
+
+airport:109_L_07_AVE_FU_A a brick:Alarm .
+
+airport:109_L_07_AVE_FU_B a brick:Mode_Status .
+
+airport:109_L_07_AVE_FU_M a brick:Frequency_Sensor .
+
+airport:109_L_07_AVE_FU_O a ext:MAnual_Mode_Status .
+
+airport:109_L_07_AVE_FU_S a brick:On_Off_Command .
+
+airport:109_L_07_AVE_FU_S_OperatingMode a brick:On_Off_Command .
+
+airport:109_L_07_AVE_FU_Y a brick:Level_Command .
+
+airport:109_L_07_AVE_FU_Y_OperatingMode a brick:Level_Command .
+
+airport:109_L_07_AVE_KT_M a brick:Temperature_Sensor .
+
+airport:109_L_07_AVE_KW_M a brick:Power_Sensor .
+
+airport:109_L_07_AVE_LF_A a brick:Alarm .
+
+airport:109_L_07_AVE_LZ_M a brick:Run_Time_Sensor .
+
+airport:109_L_07_AVE_MS_A a brick:Failure_Alarm .
+
+airport:109_L_07_AVE_SA_B a brick:On_Off_Status .
+
+airport:109_L_07_Abluft a ext:Extracted_Air ;
+    brick:hasPoint airport:109_L_07_ABL_CO_M,
+        airport:109_L_07_ABL_CO_X,
+        airport:109_L_07_ABL_FE_M,
+        airport:109_L_07_ABL_FE_X,
+        airport:109_L_07_ABL_FL_M,
+        airport:109_L_07_ABL_LQ_M,
+        airport:109_L_07_ABL_PR_M,
+        airport:109_L_07_ABL_TE1M,
+        airport:109_L_07_ABL_TE_M .
+
+airport:109_L_07_Abluftventilator a brick:Exhaust_Fan ;
+    brick:hasPoint airport:109_L_07_AVE_AP_M,
+        airport:109_L_07_AVE_BZ_M,
+        airport:109_L_07_AVE_EN_M,
+        airport:109_L_07_AVE_FB_A,
+        airport:109_L_07_AVE_FU_A,
+        airport:109_L_07_AVE_FU_B,
+        airport:109_L_07_AVE_FU_M,
+        airport:109_L_07_AVE_FU_O,
+        airport:109_L_07_AVE_FU_S,
+        airport:109_L_07_AVE_FU_S_OperatingMode,
+        airport:109_L_07_AVE_FU_Y,
+        airport:109_L_07_AVE_FU_Y_OperatingMode,
+        airport:109_L_07_AVE_KT_M,
+        airport:109_L_07_AVE_KW_M,
+        airport:109_L_07_AVE_LF_A,
+        airport:109_L_07_AVE_LZ_M,
+        airport:109_L_07_AVE_MS_A,
+        airport:109_L_07_AVE_SA_B .
+
+airport:109_L_07_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:109_L_07_ANL_FG_S,
+        airport:109_L_07_ANL_FS_A .
+
+airport:109_L_07_Aussenluft a ext:Outside_Air ;
+    brick:hasPoint airport:109_L_07_AUL_TE_M .
+
+airport:109_L_07_BEF_LX_A a brick:Alarm .
+
+airport:109_L_07_BEF_NI_A a brick:Level_Alarm .
+
+airport:109_L_07_BEF_PD_A a brick:Pressure_Alarm .
+
+airport:109_L_07_BEF_PU_A a ext:Pump_Alarm .
+
+airport:109_L_07_BEF_PU_B a brick:Pump_Status .
+
+airport:109_L_07_BEF_PU_S a ext:Pump_On_Off_Command .
+
+airport:109_L_07_BEF_PU_S_OperatingMode a ext:Pump_On_Off_Command .
+
+airport:109_L_07_Befeuchter a brick:Humidifier ;
+    brick:hasPoint airport:109_L_07_BEF_FL_M,
+        airport:109_L_07_BEF_LX_A,
+        airport:109_L_07_BEF_NI_A,
+        airport:109_L_07_BEF_PD_A,
+        airport:109_L_07_BEF_PU_A,
+        airport:109_L_07_BEF_PU_B,
+        airport:109_L_07_BEF_PU_S,
+        airport:109_L_07_BEF_PU_S_OperatingMode .
+
+airport:109_L_07_FOL_TE_M a brick:Temperature_Sensor .
+
+airport:109_L_07_Fortluft a ext:Exhaust_Air ;
+    brick:hasPoint airport:109_L_07_FOL_TE_M .
+
+airport:109_L_07_HRG_PU1B a brick:Pump_Status .
+
+airport:109_L_07_HRG_PU1S a ext:Pump_On_Off_Command .
+
+airport:109_L_07_HRG_PU1S_OperatingMode a ext:Pump_On_Off_Command .
+
+airport:109_L_07_HRG_PU2B a brick:Pump_Status .
+
+airport:109_L_07_HRG_PU2S a ext:Pump_On_Off_Command .
+
+airport:109_L_07_HRG_PU2S_OperatingMode a ext:Pump_On_Off_Command .
+
+airport:109_L_07_HRG_PU_A a ext:Pump_Alarm .
+
+airport:109_L_07_HRG_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:109_L_07_HRG_RV_O a ext:Manual_Mode_Status .
+
+airport:109_L_07_HRG_RV_Y a brick:Valve_Command .
+
+airport:109_L_07_HRG_RV_Y_OperatingMode a brick:Valve_Command .
+
+airport:109_L_07_HRG_SA_B a brick:On_Off_Status .
+
+airport:109_L_07_Heizregister a brick:Heating_Coil ;
+    brick:hasPoint airport:109_L_07_HRG_PU1B,
+        airport:109_L_07_HRG_PU1S,
+        airport:109_L_07_HRG_PU1S_OperatingMode,
+        airport:109_L_07_HRG_PU2B,
+        airport:109_L_07_HRG_PU2S,
+        airport:109_L_07_HRG_PU2S_OperatingMode,
+        airport:109_L_07_HRG_PU_A,
+        airport:109_L_07_HRG_RL_M,
+        airport:109_L_07_HRG_RV_O,
+        airport:109_L_07_HRG_RV_Y,
+        airport:109_L_07_HRG_RV_Y_OperatingMode,
+        airport:109_L_07_HRG_SA_B .
+
+airport:109_L_07_KRG_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:109_L_07_KRG_RV_O a ext:Manual_Mode_Status .
+
+airport:109_L_07_KRG_RV_Y a brick:Valve_Command .
+
+airport:109_L_07_KRG_RV_Y_OperatingMode a brick:Valve_Command .
+
+airport:109_L_07_Kuehlregister a brick:Cooling_Coil ;
+    brick:hasPoint airport:109_L_07_KRG_RL_M,
+        airport:109_L_07_KRG_RV_O,
+        airport:109_L_07_KRG_RV_Y,
+        airport:109_L_07_KRG_RV_Y_OperatingMode .
+
+airport:109_L_07_NHR_PU_A a ext:Pump_Alarm .
+
+airport:109_L_07_NHR_PU_B a brick:Pump_Status .
+
+airport:109_L_07_NHR_PU_S a ext:Pump_On_Off_Command .
+
+airport:109_L_07_NHR_PU_S_OperatingMode a ext:Pump_On_Off_Command .
+
+airport:109_L_07_NHR_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:109_L_07_NHR_RV_O a ext:Manual_Mode_Status .
+
+airport:109_L_07_NHR_RV_Y a brick:Valve_Command .
+
+airport:109_L_07_NHR_RV_Y_OperatingMode a brick:Valve_Command .
+
+airport:109_L_07_NHR_SA_B a brick:On_Off_Status .
+
+airport:109_L_07_Nachheizregister a ext:Reheat_Coil ;
+    brick:hasPoint airport:109_L_07_NHR_PU_A,
+        airport:109_L_07_NHR_PU_B,
+        airport:109_L_07_NHR_PU_S,
+        airport:109_L_07_NHR_PU_S_OperatingMode,
+        airport:109_L_07_NHR_RL_M,
+        airport:109_L_07_NHR_RV_O,
+        airport:109_L_07_NHR_RV_Y,
+        airport:109_L_07_NHR_RV_Y_OperatingMode,
+        airport:109_L_07_NHR_SA_B .
+
+airport:109_L_07_RAUMTE1M a brick:Temperature_Sensor .
+
+airport:109_L_07_RAUMTE2M a brick:Temperature_Sensor .
+
+airport:109_L_07_RAUMTE_R a brick:Temperature_Setpoint .
+
+airport:109_L_07_RAUMTE_X a brick:Temperature_Setpoint .
+
+airport:109_L_07_Waermerueckgewinnung a ext:Heat_Recovery_System ;
+    brick:hasPoint airport:109_L_07_WRG____A,
+        airport:109_L_07_WRG____O,
+        airport:109_L_07_WRG____S,
+        airport:109_L_07_WRG____S_OperatingMode,
+        airport:109_L_07_WRG____Y,
+        airport:109_L_07_WRG____Y_OperatingMode .
+
+airport:109_L_07_ZUL_FE_M a brick:Relative_Humidity_Sensor .
+
+airport:109_L_07_ZUL_PR_M a brick:Differential_Pressure_Sensor .
+
+airport:109_L_07_ZUL_TE1M a brick:Temperature_Sensor .
+
+airport:109_L_07_ZUL_TE2M a brick:Temperature_Sensor .
+
+airport:109_L_07_ZUL_TE2R a brick:Temperature_Setpoint .
+
+airport:109_L_07_ZUL_TE2X a brick:Temperature_Setpoint .
+
+airport:109_L_07_ZUL_TE3M a brick:Temperature_Sensor .
+
+airport:109_L_07_ZUL_TE_M a brick:Temperature_Sensor .
+
+airport:109_L_07_ZVE_AP_M a brick:Power_Sensor .
+
+airport:109_L_07_ZVE_BZ_M a brick:Run_Time_Sensor .
+
+airport:109_L_07_ZVE_EN_M a brick:Power_Sensor .
+
+airport:109_L_07_ZVE_FB_A a brick:Communication_Loss_Alarm .
+
+airport:109_L_07_ZVE_FU_A a brick:Alarm .
+
+airport:109_L_07_ZVE_FU_B a brick:Mode_Status .
+
+airport:109_L_07_ZVE_FU_M a brick:Frequency_Sensor .
+
+airport:109_L_07_ZVE_FU_O a ext:MAnual_Mode_Status .
+
+airport:109_L_07_ZVE_FU_S a brick:On_Off_Command .
+
+airport:109_L_07_ZVE_FU_S_OperatingMode a brick:On_Off_Command .
+
+airport:109_L_07_ZVE_FU_Y a brick:Level_Command .
+
+airport:109_L_07_ZVE_FU_Y_OperatingMode a brick:Level_Command .
+
+airport:109_L_07_ZVE_KT_M a brick:Temperature_Sensor .
+
+airport:109_L_07_ZVE_KW_M a brick:Power_Sensor .
+
+airport:109_L_07_ZVE_LF_A a brick:Alarm .
+
+airport:109_L_07_ZVE_LZ_M a brick:Run_Time_Sensor .
+
+airport:109_L_07_ZVE_MS_A a brick:Failure_Alarm .
+
+airport:109_L_07_ZVE_SA_B a brick:On_Off_Status .
+
+airport:109_L_07_Zuluft a ext:Supply_Air ;
+    brick:hasPoint airport:109_L_07_ZUL_FE_M,
+        airport:109_L_07_ZUL_FL_M,
+        airport:109_L_07_ZUL_PR_M,
+        airport:109_L_07_ZUL_TE1M,
+        airport:109_L_07_ZUL_TE2M,
+        airport:109_L_07_ZUL_TE2R,
+        airport:109_L_07_ZUL_TE2X,
+        airport:109_L_07_ZUL_TE3M,
+        airport:109_L_07_ZUL_TE_M .
+
+airport:109_L_07_Zuluftventilator a brick:Supply_Fan ;
+    brick:hasPoint airport:109_L_07_ZVE_AP_M,
+        airport:109_L_07_ZVE_BZ_M,
+        airport:109_L_07_ZVE_EN_M,
+        airport:109_L_07_ZVE_FB_A,
+        airport:109_L_07_ZVE_FU_A,
+        airport:109_L_07_ZVE_FU_B,
+        airport:109_L_07_ZVE_FU_M,
+        airport:109_L_07_ZVE_FU_O,
+        airport:109_L_07_ZVE_FU_S,
+        airport:109_L_07_ZVE_FU_S_OperatingMode,
+        airport:109_L_07_ZVE_FU_Y,
+        airport:109_L_07_ZVE_FU_Y_OperatingMode,
+        airport:109_L_07_ZVE_KT_M,
+        airport:109_L_07_ZVE_KW_M,
+        airport:109_L_07_ZVE_LF_A,
+        airport:109_L_07_ZVE_LZ_M,
+        airport:109_L_07_ZVE_MS_A,
+        airport:109_L_07_ZVE_SA_B .
+
+airport:118 a brick:Building ;
+    brick:isLocationOf airport:118_L_01 .
+
+airport:118_L_01 a brick:Ventilation_Air_System ;
+    brick:hasPart airport:118_L_01_Abluft,
+        airport:118_L_01_Abluftventilator,
+        airport:118_L_01_Anlage_allgemein,
+        airport:118_L_01_Aussenluft,
+        airport:118_L_01_Befeuchter,
+        airport:118_L_01_Brandrauchklappe,
+        airport:118_L_01_Brandschutzklappe,
+        airport:118_L_01_Fortluft,
+        airport:118_L_01_Frische_Luft,
+        airport:118_L_01_Heizregister,
+        airport:118_L_01_Kuehlregister,
+        airport:118_L_01_Nachheizregister,
+        airport:118_L_01_Waermerueckgewinnung,
+        airport:118_L_01_Zuluft,
+        airport:118_L_01_Zuluftventilator ;
+    brick:hasPoint airport:L_01_Summe\(nalarm\) .
+
+airport:118_L_01_ABL_FE_M a brick:Relative_Humidity_Sensor .
+
+airport:118_L_01_ABL_FL_S a brick:On_Off_Command .
+
+airport:118_L_01_ABL_FL_W a brick:Maintenance_Required_Alarm .
+
+airport:118_L_01_ABL_LQ_M a brick:CO2_Sensor .
+
+airport:118_L_01_ABL_LQ_X a brick:CO2_Setpoint .
+
+airport:118_L_01_ABL_PR3X a brick:Differential_Pressure_Setpoint .
+
+airport:118_L_01_ABL_PR4X a brick:Differential_Pressure_Setpoint .
+
+airport:118_L_01_ABL_PR_M a brick:Differential_Pressure_Sensor .
+
+airport:118_L_01_ABL_PR_R a brick:Differential_Pressure_Setpoint .
+
+airport:118_L_01_ABL_TE2M a brick:Temperature_Sensor .
+
+airport:118_L_01_ABL_TE_M a brick:Temperature_Sensor .
+
+airport:118_L_01_ANL_AB_S a brick:On_Off_Command .
+
+airport:118_L_01_ANL_FG_S a brick:On_Off_Command .
+
+airport:118_L_01_ANL_FS_A a ext:Frost_Alarm .
+
+airport:118_L_01_ANL_LA_S a brick:Load_Shedding_Command .
+
+airport:118_L_01_ANL_PV_S a brick:On_Off_Command .
+
+airport:118_L_01_ANL_SA_B a brick:On_Off_Status .
+
+airport:118_L_01_ANL_SH_B a ext:Manual_Mode_Status .
+
+airport:118_L_01_AUL_FL_S a brick:On_Off_Command .
+
+airport:118_L_01_AUL_FL_W a brick:Maintenance_Required_Alarm .
+
+airport:118_L_01_AUL_KL2B a brick:Valve_Status .
+
+airport:118_L_01_AUL_KL2S a brick:Valve_On_Off_Command .
+
+airport:118_L_01_AVE_BF_B a brick:Status .
+
+airport:118_L_01_AVE_BF_S a brick:On_Off_Command .
+
+airport:118_L_01_AVE_FU_A a brick:Alarm .
+
+airport:118_L_01_AVE_FU_B a brick:Mode_Status .
+
+airport:118_L_01_AVE_FU_S a brick:On_Off_Command .
+
+airport:118_L_01_AVE_FU_Y a brick:Level_Command .
+
+airport:118_L_01_AVE_LF_A a brick:Alarm .
+
+airport:118_L_01_AVE_MS_A a brick:Failure_Alarm .
+
+airport:118_L_01_AVE_SA_B a brick:On_Off_Status .
+
+airport:118_L_01_AVE_SS_B a brick:Switch_Status .
+
+airport:118_L_01_Abluft a ext:Extracted_Air ;
+    brick:hasPoint airport:118_L_01_ABL_AF1R,
+        airport:118_L_01_ABL_AF1X,
+        airport:118_L_01_ABL_AF2R,
+        airport:118_L_01_ABL_AF2X,
+        airport:118_L_01_ABL_AF_B,
+        airport:118_L_01_ABL_AF_M,
+        airport:118_L_01_ABL_FE_M,
+        airport:118_L_01_ABL_FL_S,
+        airport:118_L_01_ABL_FL_W,
+        airport:118_L_01_ABL_LQ_M,
+        airport:118_L_01_ABL_LQ_X,
+        airport:118_L_01_ABL_PR3X,
+        airport:118_L_01_ABL_PR4X,
+        airport:118_L_01_ABL_PR_M,
+        airport:118_L_01_ABL_PR_R,
+        airport:118_L_01_ABL_TE2M,
+        airport:118_L_01_ABL_TE_M .
+
+airport:118_L_01_Abluftventilator a brick:Exhaust_Fan ;
+    brick:hasPoint airport:118_L_01_AVE_BF_B,
+        airport:118_L_01_AVE_BF_S,
+        airport:118_L_01_AVE_FU_A,
+        airport:118_L_01_AVE_FU_B,
+        airport:118_L_01_AVE_FU_S,
+        airport:118_L_01_AVE_FU_Y,
+        airport:118_L_01_AVE_LF_A,
+        airport:118_L_01_AVE_MS_A,
+        airport:118_L_01_AVE_SA_B,
+        airport:118_L_01_AVE_SS_B .
+
+airport:118_L_01_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:118_L_01_ANL_AB_S,
+        airport:118_L_01_ANL_BA_S,
+        airport:118_L_01_ANL_FG_S,
+        airport:118_L_01_ANL_FS_A,
+        airport:118_L_01_ANL_LA_S,
+        airport:118_L_01_ANL_PV_S,
+        airport:118_L_01_ANL_SA_B,
+        airport:118_L_01_ANL_SH_B .
+
+airport:118_L_01_Aussenluft a ext:Outside_Air ;
+    brick:hasPoint airport:118_L_01_AUL_FL_S,
+        airport:118_L_01_AUL_FL_W,
+        airport:118_L_01_AUL_KL2B,
+        airport:118_L_01_AUL_KL2S .
+
+airport:118_L_01_BEF_MV1S a brick:On_Off_Command .
+
+airport:118_L_01_BEF_MV2S a brick:On_Off_Command .
+
+airport:118_L_01_BEF_NX_A a brick:High_Humidity_Alarm .
+
+airport:118_L_01_BEF_PD_S a brick:On_Off_Command .
+
+airport:118_L_01_BEF_PU_A a ext:Pump_Alarm .
+
+airport:118_L_01_BEF_PU_B a brick:Pump_Status .
+
+airport:118_L_01_BEF_PU_S a ext:Pump_On_Off_Command .
+
+airport:118_L_01_BSK_SU_A a ext:Alarm_Sum .
+
+airport:118_L_01_Befeuchter a brick:Humidifier ;
+    brick:hasPoint airport:118_L_01_BEF_MV1S,
+        airport:118_L_01_BEF_MV2S,
+        airport:118_L_01_BEF_NX_A,
+        airport:118_L_01_BEF_PD_S,
+        airport:118_L_01_BEF_PD_W,
+        airport:118_L_01_BEF_PU_A,
+        airport:118_L_01_BEF_PU_B,
+        airport:118_L_01_BEF_PU_S .
+
+airport:118_L_01_Brandrauchklappe a ext:Smoke_Damper ;
+    brick:hasPoint airport:118_L_01_BRK_AN_S .
+
+airport:118_L_01_Brandschutzklappe a ext:Fire_Damper ;
+    brick:hasPoint airport:118_L_01_BSK_SU_A .
+
+airport:118_L_01_FOL1KLAB a brick:Valve_Position_Alarm .
+
+airport:118_L_01_FOL1KLZB a brick:Valve_Position_Sensor .
+
+airport:118_L_01_FOL1KL_S a brick:Valve_On_Off_Command .
+
+airport:118_L_01_FOL2KLAB a brick:Valve_Position_Alarm .
+
+airport:118_L_01_FOL2KLZB a brick:Valve_Position_Sensor .
+
+airport:118_L_01_FOL2KL_S a brick:Valve_On_Off_Command .
+
+airport:118_L_01_FOL_KL_Y a brick:Valve_Position_Command .
+
+airport:118_L_01_FRL_KL_Y a brick:Valve_Position_Command .
+
+airport:118_L_01_FRL_MN_X a brick:Level_Setpoint .
+
+airport:118_L_01_Fortluft a ext:Exhaust_Air ;
+    brick:hasPoint airport:118_L_01_FOL1KLAB,
+        airport:118_L_01_FOL1KLZB,
+        airport:118_L_01_FOL1KL_S,
+        airport:118_L_01_FOL2KLAB,
+        airport:118_L_01_FOL2KLZB,
+        airport:118_L_01_FOL2KL_S,
+        airport:118_L_01_FOL_KL_Y .
+
+airport:118_L_01_Frische_Luft a ext:Outside_Air ;
+    brick:hasPoint airport:118_L_01_FRL_KL_Y,
+        airport:118_L_01_FRL_MN_X .
+
+airport:118_L_01_HRG_PU1A a ext:Pump_Alarm .
+
+airport:118_L_01_HRG_PU1B a brick:Pump_Status .
+
+airport:118_L_01_HRG_PU1S a ext:Pump_On_Off_Command .
+
+airport:118_L_01_HRG_PU2A a ext:Pump_Alarm .
+
+airport:118_L_01_HRG_PU2B a brick:Pump_Status .
+
+airport:118_L_01_HRG_PU2S a ext:Pump_On_Off_Command .
+
+airport:118_L_01_HRG_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:118_L_01_HRG_RV_O a ext:Manual_Mode_Status .
+
+airport:118_L_01_HRG_RV_Y a brick:Valve_Command .
+
+airport:118_L_01_Heizregister a brick:Heating_Coil ;
+    brick:hasPoint airport:118_L_01_HRG_PU1A,
+        airport:118_L_01_HRG_PU1B,
+        airport:118_L_01_HRG_PU1S,
+        airport:118_L_01_HRG_PU2A,
+        airport:118_L_01_HRG_PU2B,
+        airport:118_L_01_HRG_PU2S,
+        airport:118_L_01_HRG_RLNX,
+        airport:118_L_01_HRG_RL_M,
+        airport:118_L_01_HRG_RV_O,
+        airport:118_L_01_HRG_RV_Y .
+
+airport:118_L_01_KRG_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:118_L_01_KRG_RV_O a ext:Manual_Mode_Status .
+
+airport:118_L_01_KRG_RV_Y a brick:Valve_Command .
+
+airport:118_L_01_Kuehlregister a brick:Cooling_Coil ;
+    brick:hasPoint airport:118_L_01_KRG_RL_M,
+        airport:118_L_01_KRG_RV_O,
+        airport:118_L_01_KRG_RV_Y .
+
+airport:118_L_01_NHR_PU_A a ext:Pump_Alarm .
+
+airport:118_L_01_NHR_PU_B a brick:Pump_Status .
+
+airport:118_L_01_NHR_PU_S a ext:Pump_On_Off_Command .
+
+airport:118_L_01_NHR_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:118_L_01_NHR_RV_O a ext:Manual_Mode_Status .
+
+airport:118_L_01_NHR_RV_Y a brick:Valve_Command .
+
+airport:118_L_01_Nachheizregister a ext:Reheat_Coil ;
+    brick:hasPoint airport:118_L_01_NHR_PU_A,
+        airport:118_L_01_NHR_PU_B,
+        airport:118_L_01_NHR_PU_S,
+        airport:118_L_01_NHR_RL_M,
+        airport:118_L_01_NHR_RV_O,
+        airport:118_L_01_NHR_RV_Y .
+
+airport:118_L_01_WRG_VS_A a ext:Frost_Alarm .
+
+airport:118_L_01_Waermerueckgewinnung a ext:Heat_Recovery_System ;
+    brick:hasPoint airport:118_L_01_WRG_VS_A,
+        airport:118_L_01_WRG____A,
+        airport:118_L_01_WRG____B,
+        airport:118_L_01_WRG____O,
+        airport:118_L_01_WRG____S,
+        airport:118_L_01_WRG____Y .
+
+airport:118_L_01_ZUL_FEXX a brick:Relative_Humidity_Setpoint .
+
+airport:118_L_01_ZUL_FE_M a brick:Relative_Humidity_Sensor .
+
+airport:118_L_01_ZUL_FL_S a brick:On_Off_Command .
+
+airport:118_L_01_ZUL_FL_W a brick:Maintenance_Required_Alarm .
+
+airport:118_L_01_ZUL_PR1X a brick:Differential_Pressure_Setpoint .
+
+airport:118_L_01_ZUL_PR2X a brick:Differential_Pressure_Setpoint .
+
+airport:118_L_01_ZUL_PR_A a brick:Pressure_Alarm .
+
+airport:118_L_01_ZUL_PR_M a brick:Differential_Pressure_Sensor .
+
+airport:118_L_01_ZUL_PR_R a brick:Differential_Pressure_Setpoint .
+
+airport:118_L_01_ZUL_TE1M a brick:Temperature_Sensor .
+
+airport:118_L_01_ZUL_TE1R a brick:Temperature_Setpoint .
+
+airport:118_L_01_ZUL_TE1X a brick:Temperature_Setpoint .
+
+airport:118_L_01_ZUL_TE2M a brick:Temperature_Sensor .
+
+airport:118_L_01_ZUL_TE2R a brick:Temperature_Setpoint .
+
+airport:118_L_01_ZUL_TE3M a brick:Temperature_Sensor .
+
+airport:118_L_01_ZUL_TP_R a brick:Dewpoint_Setpoint .
+
+airport:118_L_01_ZVE_BF_B a brick:Status .
+
+airport:118_L_01_ZVE_BF_S a brick:On_Off_Command .
+
+airport:118_L_01_ZVE_FU_A a brick:Alarm .
+
+airport:118_L_01_ZVE_FU_B a brick:Mode_Status .
+
+airport:118_L_01_ZVE_FU_S a brick:On_Off_Command .
+
+airport:118_L_01_ZVE_FU_Y a brick:Level_Command .
+
+airport:118_L_01_ZVE_LF_A a brick:Alarm .
+
+airport:118_L_01_ZVE_MS_A a brick:Failure_Alarm .
+
+airport:118_L_01_ZVE_SA_B a brick:On_Off_Status .
+
+airport:118_L_01_ZVE_SS_B a brick:Switch_Status .
+
+airport:118_L_01_Zuluft a ext:Supply_Air ;
+    brick:hasPoint airport:118_L_01_ZUL_AF_M,
+        airport:118_L_01_ZUL_FEXX,
+        airport:118_L_01_ZUL_FE_M,
+        airport:118_L_01_ZUL_FL_S,
+        airport:118_L_01_ZUL_FL_W,
+        airport:118_L_01_ZUL_PR1X,
+        airport:118_L_01_ZUL_PR2X,
+        airport:118_L_01_ZUL_PR_A,
+        airport:118_L_01_ZUL_PR_M,
+        airport:118_L_01_ZUL_PR_R,
+        airport:118_L_01_ZUL_TE1M,
+        airport:118_L_01_ZUL_TE1R,
+        airport:118_L_01_ZUL_TE1X,
+        airport:118_L_01_ZUL_TE2M,
+        airport:118_L_01_ZUL_TE2R,
+        airport:118_L_01_ZUL_TE3M,
+        airport:118_L_01_ZUL_TP_R .
+
+airport:118_L_01_Zuluftventilator a brick:Supply_Fan ;
+    brick:hasPoint airport:118_L_01_ZVE_BF_B,
+        airport:118_L_01_ZVE_BF_S,
+        airport:118_L_01_ZVE_FU_A,
+        airport:118_L_01_ZVE_FU_B,
+        airport:118_L_01_ZVE_FU_S,
+        airport:118_L_01_ZVE_FU_Y,
+        airport:118_L_01_ZVE_LF_A,
+        airport:118_L_01_ZVE_MS_A,
+        airport:118_L_01_ZVE_SA_B,
+        airport:118_L_01_ZVE_SS_B .
+
+airport:680 a brick:Building ;
+    brick:isLocationOf airport:680_LZ01,
+        airport:680_L_01 .
+
+airport:680_LZ01 a ext:Ventilation_Zone ;
+    brick:hasPart airport:680_LZ01_Anlage_allgemein,
+        airport:680_LZ01_Aussentemperatur\(-Freigabe\),
+        airport:680_LZ01_Heizregister,
+        airport:680_LZ01_Kuehlregister,
+        airport:680_LZ01_Zuluft .
+
+airport:680_LZ01_ANL_FE1S a brick:On_Off_Command .
+
+airport:680_LZ01_ANL_FG1S a brick:On_Off_Command .
+
+airport:680_LZ01_ANL_FG2S a brick:On_Off_Command .
+
+airport:680_LZ01_ANL_FG3S a brick:On_Off_Command .
+
+airport:680_LZ01_ANL_FG_X a brick:On_Off_Status .
+
+airport:680_LZ01_AUS_TE_M a brick:Temperature_Sensor .
+
+airport:680_LZ01_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:680_LZ01_ANL_FE1S,
+        airport:680_LZ01_ANL_FG1S,
+        airport:680_LZ01_ANL_FG2S,
+        airport:680_LZ01_ANL_FG3S,
+        airport:680_LZ01_ANL_FG_X .
+
+airport:680_LZ01_Aussentemperatur\(-Freigabe\) a brick:Outside_Air_Temperature_Sensor ;
+    brick:hasPoint airport:680_LZ01_AUS_TE_M .
+
+airport:680_LZ01_HRG_PU3A a ext:Pump_Alarm .
+
+airport:680_LZ01_HRG_PU3B a brick:Pump_Status .
+
+airport:680_LZ01_HRG_PU3S a ext:Pump_On_Off_Command .
+
+airport:680_LZ01_HRG_PU4A a ext:Pump_Alarm .
+
+airport:680_LZ01_HRG_PU4B a brick:Pump_Status .
+
+airport:680_LZ01_HRG_PU4S a ext:Pump_On_Off_Command .
+
+airport:680_LZ01_HRG_RL1M a brick:Return_Water_Temperature_Sensor .
+
+airport:680_LZ01_HRG_RL2M a brick:Return_Water_Temperature_Sensor .
+
+airport:680_LZ01_HRG_RV1O a ext:Manual_Mode_Status .
+
+airport:680_LZ01_HRG_RV1Y a brick:Valve_Command .
+
+airport:680_LZ01_HRG_RV2O a ext:Manual_Mode_Status .
+
+airport:680_LZ01_HRG_RV2Y a brick:Valve_Command .
+
+airport:680_LZ01_Heizregister a brick:Heating_Coil ;
+    brick:hasPoint airport:680_LZ01_HRG_PU3A,
+        airport:680_LZ01_HRG_PU3B,
+        airport:680_LZ01_HRG_PU3S,
+        airport:680_LZ01_HRG_PU4A,
+        airport:680_LZ01_HRG_PU4B,
+        airport:680_LZ01_HRG_PU4S,
+        airport:680_LZ01_HRG_RL1M,
+        airport:680_LZ01_HRG_RL2M,
+        airport:680_LZ01_HRG_RV1O,
+        airport:680_LZ01_HRG_RV1Y,
+        airport:680_LZ01_HRG_RV2O,
+        airport:680_LZ01_HRG_RV2Y .
+
+airport:680_LZ01_KRG_RL1M a brick:Return_Water_Temperature_Sensor .
+
+airport:680_LZ01_KRG_RL2M a brick:Return_Water_Temperature_Sensor .
+
+airport:680_LZ01_KRG_RV1O a ext:Manual_Mode_Status .
+
+airport:680_LZ01_KRG_RV1Y a brick:Valve_Command .
+
+airport:680_LZ01_KRG_RV2O a ext:Manual_Mode_Status .
+
+airport:680_LZ01_KRG_RV2Y a brick:Valve_Command .
+
+airport:680_LZ01_KRG_VL1M a brick:Supply_Temperature_Sensor .
+
+airport:680_LZ01_KRG_VL2M a brick:Supply_Temperature_Sensor .
+
+airport:680_LZ01_Kuehlregister a brick:Cooling_Coil ;
+    brick:hasPoint airport:680_LZ01_KRG_RL1M,
+        airport:680_LZ01_KRG_RL2M,
+        airport:680_LZ01_KRG_RV1O,
+        airport:680_LZ01_KRG_RV1Y,
+        airport:680_LZ01_KRG_RV2O,
+        airport:680_LZ01_KRG_RV2Y,
+        airport:680_LZ01_KRG_VL1M,
+        airport:680_LZ01_KRG_VL2M .
+
+airport:680_LZ01_ZUL1TE_R a brick:Temperature_Setpoint .
+
+airport:680_LZ01_ZUL2TE_R a brick:Temperature_Setpoint .
+
+airport:680_LZ01_ZUL_FE1M a brick:Relative_Humidity_Sensor .
+
+airport:680_LZ01_ZUL_FE1X a brick:Relative_Humidity_Setpoint .
+
+airport:680_LZ01_ZUL_FE2M a brick:Relative_Humidity_Sensor .
+
+airport:680_LZ01_ZUL_FE2X a brick:Relative_Humidity_Setpoint .
+
+airport:680_LZ01_ZUL_FEXX a brick:Relative_Humidity_Setpoint .
+
+airport:680_LZ01_ZUL_KL1S a brick:Valve_On_Off_Command .
+
+airport:680_LZ01_ZUL_KL2S a brick:Valve_On_Off_Command .
+
+airport:680_LZ01_ZUL_PR1M a brick:Differential_Pressure_Sensor .
+
+airport:680_LZ01_ZUL_PR2M a brick:Differential_Pressure_Sensor .
+
+airport:680_LZ01_ZUL_TE1M a brick:Temperature_Sensor .
+
+airport:680_LZ01_ZUL_TE2M a brick:Temperature_Sensor .
+
+airport:680_LZ01_ZUL_TE_R a brick:Temperature_Setpoint .
+
+airport:680_LZ01_Zuluft a ext:Supply_Air ;
+    brick:hasPoint airport:680_LZ01_ZUL1TE_R,
+        airport:680_LZ01_ZUL2TE_R,
+        airport:680_LZ01_ZUL_FE1M,
+        airport:680_LZ01_ZUL_FE1X,
+        airport:680_LZ01_ZUL_FE2M,
+        airport:680_LZ01_ZUL_FE2X,
+        airport:680_LZ01_ZUL_FEXX,
+        airport:680_LZ01_ZUL_KL1S,
+        airport:680_LZ01_ZUL_KL2S,
+        airport:680_LZ01_ZUL_PR1M,
+        airport:680_LZ01_ZUL_PR2M,
+        airport:680_LZ01_ZUL_TE1M,
+        airport:680_LZ01_ZUL_TE2M,
+        airport:680_LZ01_ZUL_TE_R .
+
+airport:680_L_01 a brick:Ventilation_Air_System ;
+    brick:hasPart airport:680_L_01_Abluft,
+        airport:680_L_01_Abluftventilator,
+        airport:680_L_01_Anlage_allgemein,
+        airport:680_L_01_Aussenluft,
+        airport:680_L_01_Befeuchter,
+        airport:680_L_01_Brandmeldeanlage,
+        airport:680_L_01_Brandschutzklappe,
+        airport:680_L_01_Fortluft,
+        airport:680_L_01_Heizregister,
+        airport:680_L_01_Umluft,
+        airport:680_L_01_Zuluft,
+        airport:680_L_01_Zuluftventilator,
+        airport:680_L_01_rotierender_Waermeaustausch .
+
+airport:680_L_01_ABL_FE_M a brick:Relative_Humidity_Sensor .
+
+airport:680_L_01_ABL_FE_X a brick:Relative_Humidity_Setpoint .
+
+airport:680_L_01_ABL_FL_W a brick:Maintenance_Required_Alarm .
+
+airport:680_L_01_ABL_PR_M a brick:Differential_Pressure_Sensor .
+
+airport:680_L_01_ABL_PR_X a brick:Differential_Pressure_Setpoint .
+
+airport:680_L_01_ABL_TE1M a brick:Temperature_Sensor .
+
+airport:680_L_01_ABL_TE_M a brick:Temperature_Sensor .
+
+airport:680_L_01_ANL_FE0B a brick:Relative_Humidity_Sensor .
+
+airport:680_L_01_ANL_FG_S a brick:On_Off_Command .
+
+airport:680_L_01_ANL_FS_A a ext:Frost_Alarm .
+
+airport:680_L_01_ANL_PX_A a brick:Pressure_Alarm .
+
+airport:680_L_01_ANL_SA_B a brick:On_Off_Status .
+
+airport:680_L_01_ANL_SH_B a ext:Manual_Mode_Status .
+
+airport:680_L_01_AUL_FL_W a brick:Maintenance_Required_Alarm .
+
+airport:680_L_01_AUL_KL_B a brick:Valve_Status .
+
+airport:680_L_01_AUL_KL_S a brick:Valve_On_Off_Command .
+
+airport:680_L_01_AUL_TE_M a brick:Temperature_Sensor .
+
+airport:680_L_01_AVE_AP_M a brick:Power_Sensor .
+
+airport:680_L_01_AVE_BZ_M a brick:Run_Time_Sensor .
+
+airport:680_L_01_AVE_FU_A a brick:Alarm .
+
+airport:680_L_01_AVE_FU_B a brick:Mode_Status .
+
+airport:680_L_01_AVE_FU_O a ext:MAnual_Mode_Status .
+
+airport:680_L_01_AVE_FU_S a brick:On_Off_Command .
+
+airport:680_L_01_AVE_FU_Y a brick:Level_Command .
+
+airport:680_L_01_AVE_KW_M a brick:Power_Sensor .
+
+airport:680_L_01_AVE_LF_A a brick:Alarm .
+
+airport:680_L_01_AVE_MS_A a brick:Failure_Alarm .
+
+airport:680_L_01_AVE_SA_B a brick:On_Off_Status .
+
+airport:680_L_01_AVE_SH_B a ext:Manual_Mode_Status .
+
+airport:680_L_01_AVE_SS_B a brick:Switch_Status .
+
+airport:680_L_01_AVE_SU_A a ext:Alarm_Sum .
+
+airport:680_L_01_Abluft a ext:Extracted_Air ;
+    brick:hasPoint airport:680_L_01_ABL_FE_M,
+        airport:680_L_01_ABL_FE_X,
+        airport:680_L_01_ABL_FL_W,
+        airport:680_L_01_ABL_PR_M,
+        airport:680_L_01_ABL_PR_X,
+        airport:680_L_01_ABL_TE1M,
+        airport:680_L_01_ABL_TE_M,
+        airport:680_L_01_ABL_WF_B,
+        airport:680_L_01_ABL_WF_M .
+
+airport:680_L_01_Abluftventilator a brick:Exhaust_Fan ;
+    brick:hasPoint airport:680_L_01_AVE_AP_M,
+        airport:680_L_01_AVE_BZ_M,
+        airport:680_L_01_AVE_FU_A,
+        airport:680_L_01_AVE_FU_B,
+        airport:680_L_01_AVE_FU_O,
+        airport:680_L_01_AVE_FU_S,
+        airport:680_L_01_AVE_FU_Y,
+        airport:680_L_01_AVE_KW_M,
+        airport:680_L_01_AVE_LF_A,
+        airport:680_L_01_AVE_MS_A,
+        airport:680_L_01_AVE_SA_B,
+        airport:680_L_01_AVE_SH_B,
+        airport:680_L_01_AVE_SS_B,
+        airport:680_L_01_AVE_SU_A,
+        airport:680_L_01_AVE____B,
+        airport:680_L_01_AVE____S .
+
+airport:680_L_01_Anlage_allgemein a brick:HVAC_Equipment ;
+    brick:hasPoint airport:680_L_01_ANL_FE0B,
+        airport:680_L_01_ANL_FG_S,
+        airport:680_L_01_ANL_FS_A,
+        airport:680_L_01_ANL_PX_A,
+        airport:680_L_01_ANL_SA_B,
+        airport:680_L_01_ANL_SH_B .
+
+airport:680_L_01_Aussenluft a ext:Outside_Air ;
+    brick:hasPoint airport:680_L_01_AUL_FL_W,
+        airport:680_L_01_AUL_KL_B,
+        airport:680_L_01_AUL_KL_S,
+        airport:680_L_01_AUL_TE_M .
+
+airport:680_L_01_BEF_AB_S a brick:On_Off_Command .
+
+airport:680_L_01_BEF_FG_S a brick:On_Off_Command .
+
+airport:680_L_01_BEF_FL_W a brick:Maintenance_Required_Alarm .
+
+airport:680_L_01_BEF_NN_A a brick:Low_Humidity_Alarm .
+
+airport:680_L_01_BEF_PU_A a ext:Pump_Alarm .
+
+airport:680_L_01_BEF_PU_B a brick:Pump_Status .
+
+airport:680_L_01_BEF_PU_S a ext:Pump_On_Off_Command .
+
+airport:680_L_01_BEF_RV_Y a brick:Valve_Command .
+
+airport:680_L_01_BEF_SU_A a ext:Alarm_Sum .
+
+airport:680_L_01_Befeuchter a brick:Humidifier ;
+    brick:hasPoint airport:680_L_01_BEF_AB_S,
+        airport:680_L_01_BEF_FG_S,
+        airport:680_L_01_BEF_FL_W,
+        airport:680_L_01_BEF_NN_A,
+        airport:680_L_01_BEF_PU_A,
+        airport:680_L_01_BEF_PU_B,
+        airport:680_L_01_BEF_PU_S,
+        airport:680_L_01_BEF_RV_Y,
+        airport:680_L_01_BEF_SU_A,
+        airport:680_L_01_BEF____B .
+
+airport:680_L_01_Brandmeldeanlage a brick:Fire_Alarm ;
+    brick:hasPoint airport:680_L_01_BMA_01_A .
+
+airport:680_L_01_Brandschutzklappe a ext:Fire_Damper ;
+    brick:hasPoint airport:680_L_01_BSK_01_A .
+
+airport:680_L_01_FOL_KL_B a brick:Valve_Status .
+
+airport:680_L_01_FOL_KL_S a brick:Valve_On_Off_Command .
+
+airport:680_L_01_FOL_TE_M a brick:Temperature_Sensor .
+
+airport:680_L_01_Fortluft a ext:Exhaust_Air ;
+    brick:hasPoint airport:680_L_01_FOL_KL_B,
+        airport:680_L_01_FOL_KL_S,
+        airport:680_L_01_FOL_TE_M .
+
+airport:680_L_01_HRG_PU1A a ext:Pump_Alarm .
+
+airport:680_L_01_HRG_PU1B a brick:Pump_Status .
+
+airport:680_L_01_HRG_PU1S a ext:Pump_On_Off_Command .
+
+airport:680_L_01_HRG_PU2A a ext:Pump_Alarm .
+
+airport:680_L_01_HRG_PU2B a brick:Pump_Status .
+
+airport:680_L_01_HRG_PU2S a ext:Pump_On_Off_Command .
+
+airport:680_L_01_HRG_RL_M a brick:Return_Water_Temperature_Sensor .
+
+airport:680_L_01_HRG_RV_O a ext:Manual_Mode_Status .
+
+airport:680_L_01_HRG_RV_Y a brick:Valve_Command .
+
+airport:680_L_01_Heizregister a brick:Heating_Coil ;
+    brick:hasPoint airport:680_L_01_HRG_PU1A,
+        airport:680_L_01_HRG_PU1B,
+        airport:680_L_01_HRG_PU1S,
+        airport:680_L_01_HRG_PU2A,
+        airport:680_L_01_HRG_PU2B,
+        airport:680_L_01_HRG_PU2S,
+        airport:680_L_01_HRG_RL_M,
+        airport:680_L_01_HRG_RV_O,
+        airport:680_L_01_HRG_RV_Y .
+
+airport:680_L_01_ROT_VS_A a ext:Frost_Alarm .
+
+airport:680_L_01_UML_KL_O a ext:Manual_Mode_Status .
+
+airport:680_L_01_UML_KL_Y a brick:Valve_Position_Command .
+
+airport:680_L_01_UML_TE_M a brick:Temperature_Sensor .
+
+airport:680_L_01_Umluft a ext:Recirculated_Air ;
+    brick:hasPoint airport:680_L_01_UML_KL_O,
+        airport:680_L_01_UML_KL_Y,
+        airport:680_L_01_UML_TE_M .
+
+airport:680_L_01_ZUL_FE_M a brick:Relative_Humidity_Sensor .
+
+airport:680_L_01_ZUL_FL_W a brick:Maintenance_Required_Alarm .
+
+airport:680_L_01_ZUL_PR_M a brick:Differential_Pressure_Sensor .
+
+airport:680_L_01_ZUL_PR_X a brick:Differential_Pressure_Setpoint .
+
+airport:680_L_01_ZUL_TE_M a brick:Temperature_Sensor .
+
+airport:680_L_01_ZUL_TE_R a brick:Temperature_Setpoint .
+
+airport:680_L_01_ZVE_AP_M a brick:Power_Sensor .
+
+airport:680_L_01_ZVE_BZ_M a brick:Run_Time_Sensor .
+
+airport:680_L_01_ZVE_FU_A a brick:Alarm .
+
+airport:680_L_01_ZVE_FU_B a brick:Mode_Status .
+
+airport:680_L_01_ZVE_FU_O a ext:MAnual_Mode_Status .
+
+airport:680_L_01_ZVE_FU_S a brick:On_Off_Command .
+
+airport:680_L_01_ZVE_FU_Y a brick:Level_Command .
+
+airport:680_L_01_ZVE_KW_M a brick:Power_Sensor .
+
+airport:680_L_01_ZVE_LF_A a brick:Alarm .
+
+airport:680_L_01_ZVE_MS_A a brick:Failure_Alarm .
+
+airport:680_L_01_ZVE_SA_B a brick:On_Off_Status .
+
+airport:680_L_01_ZVE_SH_B a ext:Manual_Mode_Status .
+
+airport:680_L_01_ZVE_SS_B a brick:Switch_Status .
+
+airport:680_L_01_ZVE_SU_A a ext:Alarm_Sum .
+
+airport:680_L_01_Zuluft a ext:Supply_Air ;
+    brick:hasPoint airport:680_L_01_ZUL_FE_M,
+        airport:680_L_01_ZUL_FL_W,
+        airport:680_L_01_ZUL_PR_M,
+        airport:680_L_01_ZUL_PR_X,
+        airport:680_L_01_ZUL_TE_M,
+        airport:680_L_01_ZUL_TE_R,
+        airport:680_L_01_ZUL_WF_B,
+        airport:680_L_01_ZUL_WF_M .
+
+airport:680_L_01_Zuluftventilator a brick:Supply_Fan ;
+    brick:hasPoint airport:680_L_01_ZVE_AP_M,
+        airport:680_L_01_ZVE_BZ_M,
+        airport:680_L_01_ZVE_FU_A,
+        airport:680_L_01_ZVE_FU_B,
+        airport:680_L_01_ZVE_FU_O,
+        airport:680_L_01_ZVE_FU_S,
+        airport:680_L_01_ZVE_FU_Y,
+        airport:680_L_01_ZVE_KW_M,
+        airport:680_L_01_ZVE_LF_A,
+        airport:680_L_01_ZVE_MS_A,
+        airport:680_L_01_ZVE_SA_B,
+        airport:680_L_01_ZVE_SH_B,
+        airport:680_L_01_ZVE_SS_B,
+        airport:680_L_01_ZVE_SU_A,
+        airport:680_L_01_ZVE____B,
+        airport:680_L_01_ZVE____S .
+
+airport:680_L_01_rotierender_Waermeaustausch a brick:Heat_Recovery_System ;
+    brick:hasPoint airport:680_L_01_ROT_VS_A,
+        airport:680_L_01_ROT____A,
+        airport:680_L_01_ROT____B,
+        airport:680_L_01_ROT____O,
+        airport:680_L_01_ROT____S,
+        airport:680_L_01_ROT____Y .
+
+airport:L_01_Summe\(nalarm\) a ext:Alarm_Sum .
+
+airport:L_07_Summe\(nalarm\) a ext:Alarm_Sum .
+
+airport:L_07_Valve_Status a brick:Valve_Status .
+
+airport:L_19_Valve_Status a brick:Valve_Status .
+
+airport:Luftdruck a brick:Air_Pressure_Sensor .
+
+airport:Lufttemperatur_2m a brick:Air_Temperature_Sensor .
+
+airport:Niederschlag a brick:Rain_Level_Sensor .
+
+airport:Relative_Feuchte a brick:Relative_Humidity_Sensor .
+
+airport:Sunshine_duration a ext:Sunshine_Duration_Sensor .
+
+airport:Wind_avg_speed a brick:Wind_Speed_Sensor .
+
+airport:Wind_direction a brick:Wind_Direction_Sensor .
+
+airport:Wind_max_speed a ext:Wind_Maximum_Speed_Sensor .
+
+airport:109_1 a brick:Room ;
+    brick:hasPoint airport:109_L_07_RAUMTE1M .
+
+airport:109_2 a brick:Room ;
+    brick:hasPoint airport:109_L_07_RAUMTE2M .
+
+airport:109__ a brick:Room ;
+    brick:hasPoint airport:109_L_07_RAUMTE_R,
+        airport:109_L_07_RAUMTE_X .
+
+ext:Heat_Exchanger_System a owl:Class ;
+    rdfs:subClassOf brick:HVAC_System ;
+    skos:definition "Heat exchanger system is a system for exchanging heat between two circuits" .
+
+ext:Heating_Curve_Parameter_external_air_1 rdfs:subClassOf brick:Temperature_Parameter ;
+    skos:definition "Heating curve external air anchor point 1" .
+
+ext:Heating_Curve_Parameter_external_air_2 rdfs:subClassOf brick:Temperature_Parameter ;
+    skos:definition "Heating curve external air anchor point 2" .
+
+ext:Heating_Curve_Parameter_external_air_3 rdfs:subClassOf brick:Temperature_Parameter ;
+    skos:definition "Heating curve external air anchor point 3" .
+
+ext:Heating_Curve_Parameter_external_air_4 rdfs:subClassOf brick:Temperature_Parameter ;
+    skos:definition "Heating curve external air anchor point 4" .
+
+ext:Heating_Curve_Parameter_target_setpoint_1 rdfs:subClassOf brick:Temperature_Parameter ;
+    skos:definition "Heating curve target temperature anchor point 1" .
+
+ext:Heating_Curve_Parameter_target_setpoint_2 rdfs:subClassOf brick:Temperature_Parameter ;
+    skos:definition "Heating curve target temperature anchor point 2" .
+
+ext:Heating_Curve_Parameter_target_setpoint_3 rdfs:subClassOf brick:Temperature_Parameter ;
+    skos:definition "Heating curve target temperature anchor point 3" .
+
+ext:Heating_Curve_Parameter_target_setpoint_4 rdfs:subClassOf brick:Temperature_Parameter ;
+    skos:definition "Heating curve target temperature anchor point 4" .
+
+ext:Frost_Alarm rdfs:subClassOf brick:Alarm ;
+    skos:definition "Alarm for frost condition" .
+
+ext:Alarm_Sum rdfs:subClassOf brick:Alarm .
+
+ext:Manual_Mode_Status rdfs:subClassOf brick:Mode_Status ;
+    skos:definition "Status for manual mode" .
+
+ext:Pump_Alarm rdfs:subClassOf brick:Alarm ;
+    skos:definition "Alarm for pump" .
+
+ext:Pump_On_Off_Command rdfs:subClassOf brick:On_Off_Command .
+

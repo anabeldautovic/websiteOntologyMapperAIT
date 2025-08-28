@@ -1,0 +1,51 @@
+UserName,Beschreibung,States
+118_L_01 ABL_AF_B,Anlage Entfeuchtungsbetr,
+118_L_01 ABL_AF_B.Trend1,,
+118_L_01 ABL_AF_M,Abluftfeuchte absolut,g/kg
+118_L_01 ABL_AF_M.Trend1,,
+118_L_01 ABL_AF_M_1PR,Berechnung der Absolut-Feuchte,
+118_L_01 ABL_AF1R,err.ABLFeu.abs.befeucht,g/kg
+118_L_01 ABL_AF1R.Trend1,,
+118_L_01 ABL_AF1X,SW ABL Feu. absolut bef,g/kg
+118_L_01 ABL_AF1X.Trend1,,
+118_L_01 ABL_AF2R,err.ABLFeu.abs.entfeucht,g/kg
+118_L_01 ABL_AF2R.Trend1,,
+118_L_01 ABL_AF2X,SW ABL Feu. absolut entf,g/kg
+118_L_01 ABL_AF2X.Trend1,,
+118_L_01 ABL_FE_M,Abluftfeuchte,%
+118_L_01 ABL_FE_M.Trend1,,
+118_L_01 ABL_FL_S,Abluftfilter LED,
+118_L_01 ABL_FL_S.Trend1,,
+118_L_01 ABL_FL_W,Abluftfilter verschmutzt,Pa
+118_L_01 ABL_FL_W.Trend1,,
+118_L_01 ABL_LQ_M,Abluft Luftqualität,ppm
+118_L_01 ABL_LQ_M.Trend1,,
+118_L_01 ABL_LQ_X,SW Abluft Luftqualität,ppm
+118_L_01 ABL_LQ_X.Trend1,,
+118_L_01 ABL_PR_A,Abluft Druck max,Alarm Normal
+118_L_01 ABL_PR_A.Trend1,,
+118_L_01 ABL_PR_M,Abluftdruck,Pa
+118_L_01 ABL_PR_M.Trend1,,
+118_L_01 ABL_PR_R,err. SW Abluftdruck,Pa
+118_L_01 ABL_PR_R.Trend1,,
+118_L_01 ABL_PR3X,Abluftdruck SW Normal,Pa
+118_L_01 ABL_PR3X.Trend1,,
+118_L_01 ABL_PR4X,Abluftdruck SW Winter,Pa
+118_L_01 ABL_PR4X.Trend1,,
+118_L_01 ABL_TE_M,Ablufttemperatur,°C
+118_L_01 ABL_TE_M.Trend1,,
+118_L_01 ABL_TE2M,Ablufttemp. nach WRG,°C
+118_L_01 ABL_TE2M.Trend1,,
+118_L_01 ABS_FG_S,Freigabe Abschlämmung,
+118_L_01 ABS_FG_S.Trend1,,
+118_L_01 ABS_FG_S_ZP,Zeitprogramm,
+118_L_01 ANL_AB_S,Anlagenabschaltung,
+118_L_01 ANL_AB_S.Trend1,,
+118_L_01 ANL_AB_S_1FOL,Pmax abschaltung,
+118_L_01 ANL_BA_S,Anlage Betriebsart,
+118_L_01 ANL_BA_S.Trend1,,
+118_L_01 ANL_FG_S,Anlagenfreigabe,
+118_L_01 ANL_FG_S.Trend1,,
+118_L_01 ANL_FS_A,Frostgefahr,Normal Alarm
+118_L_01 ANL_FS_A.Trend1,,
+118_L_01 ANL_LA_S,Anlage Lastabwurf,
